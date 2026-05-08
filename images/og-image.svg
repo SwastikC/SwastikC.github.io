@@ -102,8 +102,8 @@
   <text x="100" y="455" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#9a93c4" letter-spacing="2">A S T R O P H Y S I C I S T</text>
 
   <!-- Tagline -->
-  <text x="100" y="510" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-style="italic" fill="#b794ff">Reading the chemistry of stars</text>
-  <text x="100" y="540" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-style="italic" fill="#b794ff">to find new worlds.</text>
+  <text x="100" y="510" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-style="italic" fill="#b794ff">Why do some stars host giants?</text>
+  <text x="100" y="540" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-style="italic" fill="#b794ff">I look for the answer in their light.</text>
 
   <!-- URL -->
   <text x="100" y="595" font-family="monospace" font-size="16" fill="#6b6493" letter-spacing="2">swastikc.github.io</text>

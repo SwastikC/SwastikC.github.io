@@ -24,226 +24,115 @@
     });
   }
 
-  /* ---------- 2. THREE.JS COSMIC HERO ---------- */
+  /* ---------- 2. STAR FIELD BACKGROUND (canvas, elegant) ---------- */
 
-  const heroBg = document.getElementById('hero-3d');
+  // We use the canvas star field — Three.js with planets felt too cartoony.
+  // Canvas stars + aurora glow is more atmospheric.
+  initCanvasStarfield();
 
-  if (heroBg && !reduceMotion) {
-    // Lazy-load Three.js
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-    script.onload = initThreeScene;
-    script.onerror = () => fallbackToCanvas();
-    document.head.appendChild(script);
-  } else {
-    fallbackToCanvas();
-  }
-
-  function initThreeScene() {
-    const THREE = window.THREE;
-    if (!THREE || !heroBg) return fallbackToCanvas();
-
-    const w = heroBg.clientWidth;
-    const h = heroBg.clientHeight;
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, w / h, 0.1, 2000);
-    camera.position.z = 60;
-
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(w, h);
-    renderer.setClearColor(0x000000, 0);
-    heroBg.appendChild(renderer.domElement);
-
-    // Star field — 3000 stars in a sphere
-    const starCount = 3000;
-    const starGeo = new THREE.BufferGeometry();
-    const positions = new Float32Array(starCount * 3);
-    const colors = new Float32Array(starCount * 3);
-    const sizes = new Float32Array(starCount);
-
-    const palette = [
-      [0.91, 0.90, 1.00],   // white
-      [0.91, 0.90, 1.00],
-      [0.91, 0.90, 1.00],
-      [0.72, 0.58, 1.00],   // lavender
-      [1.00, 0.42, 0.65],   // pink
-      [0.42, 0.88, 1.00]    // cyan
-    ];
-
-    for (let i = 0; i < starCount; i++) {
-      // Spherical distribution
-      const r = 200 + Math.random() * 600;
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
-      positions[i * 3]     = r * Math.sin(phi) * Math.cos(theta);
-      positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-      positions[i * 3 + 2] = r * Math.cos(phi);
-
-      const c = palette[Math.floor(Math.random() * palette.length)];
-      colors[i * 3]     = c[0];
-      colors[i * 3 + 1] = c[1];
-      colors[i * 3 + 2] = c[2];
-
-      sizes[i] = Math.random() * 1.5 + 0.4;
-    }
-
-    starGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    starGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-    starGeo.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-
-    const starMat = new THREE.PointsMaterial({
-      size: 1.5,
-      vertexColors: true,
-      transparent: true,
-      opacity: 0.9,
-      sizeAttenuation: true,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
-    });
-
-    const stars = new THREE.Points(starGeo, starMat);
-    scene.add(stars);
-
-    // Nebula cloud (simple plane with shader-like colors)
-    const nebulaGeo = new THREE.PlaneGeometry(1500, 1500, 32, 32);
-    const nebulaMat = new THREE.MeshBasicMaterial({
-      color: 0x6c4099,
-      transparent: true,
-      opacity: 0.1,
-      side: THREE.DoubleSide,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
-    });
-    const nebula = new THREE.Mesh(nebulaGeo, nebulaMat);
-    nebula.position.z = -300;
-    scene.add(nebula);
-
-    // A glowing planet
-    const planetGeo = new THREE.SphereGeometry(8, 32, 32);
-    const planetMat = new THREE.MeshBasicMaterial({
-      color: 0xb794ff,
-      transparent: true,
-      opacity: 0.85
-    });
-    const planet = new THREE.Mesh(planetGeo, planetMat);
-    planet.position.set(40, -20, -50);
-    scene.add(planet);
-
-    // Planet ring
-    const ringGeo = new THREE.RingGeometry(11, 14, 64);
-    const ringMat = new THREE.MeshBasicMaterial({
-      color: 0xff6aa6,
-      transparent: true,
-      opacity: 0.4,
-      side: THREE.DoubleSide
-    });
-    const ring = new THREE.Mesh(ringGeo, ringMat);
-    ring.rotation.x = Math.PI / 2.3;
-    ring.position.copy(planet.position);
-    scene.add(ring);
-
-    // Glow halo around planet
-    const glowGeo = new THREE.SphereGeometry(12, 32, 32);
-    const glowMat = new THREE.MeshBasicMaterial({
-      color: 0xb794ff,
-      transparent: true,
-      opacity: 0.15,
-      blending: THREE.AdditiveBlending
-    });
-    const glow = new THREE.Mesh(glowGeo, glowMat);
-    glow.position.copy(planet.position);
-    scene.add(glow);
-
-    // Distant moon
-    const moonGeo = new THREE.SphereGeometry(2.5, 16, 16);
-    const moonMat = new THREE.MeshBasicMaterial({ color: 0x6be1ff, transparent: true, opacity: 0.7 });
-    const moon = new THREE.Mesh(moonGeo, moonMat);
-    moon.position.set(-30, 25, -40);
-    scene.add(moon);
-
-    // Mouse parallax
-    let mouseX = 0, mouseY = 0;
-    let targetMouseX = 0, targetMouseY = 0;
-    window.addEventListener('mousemove', (e) => {
-      targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-      targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-    });
-
-    // Scroll parallax
-    let scrollY = 0;
-    window.addEventListener('scroll', () => { scrollY = window.scrollY; }, { passive: true });
-
-    // Resize
-    window.addEventListener('resize', () => {
-      const newW = heroBg.clientWidth;
-      const newH = heroBg.clientHeight;
-      camera.aspect = newW / newH;
-      camera.updateProjectionMatrix();
-      renderer.setSize(newW, newH);
-    });
-
-    let frame = 0;
-    function animate() {
-      frame++;
-
-      // Smooth mouse follow
-      mouseX += (targetMouseX - mouseX) * 0.04;
-      mouseY += (targetMouseY - mouseY) * 0.04;
-
-      // Stars rotate slowly + parallax
-      stars.rotation.y = frame * 0.0003 + mouseX * 0.15;
-      stars.rotation.x = mouseY * 0.1;
-      // Scroll-based zoom out feel
-      stars.position.z = scrollY * 0.05;
-
-      // Planet orbit
-      planet.position.x = 40 + Math.cos(frame * 0.003) * 5;
-      planet.position.y = -20 + Math.sin(frame * 0.004) * 3;
-      planet.rotation.y = frame * 0.005;
-      ring.position.copy(planet.position);
-      ring.rotation.z = frame * 0.002;
-      glow.position.copy(planet.position);
-      glow.scale.setScalar(1 + Math.sin(frame * 0.02) * 0.05);
-
-      // Moon
-      moon.position.x = -30 + Math.cos(frame * 0.006) * 4;
-      moon.position.y = 25 + Math.sin(frame * 0.005) * 2;
-
-      // Nebula slow drift
-      nebula.rotation.z = frame * 0.0001;
-
-      renderer.render(scene, camera);
-      requestAnimationFrame(animate);
-    }
-    animate();
-  }
-
-  /* ---------- Fallback canvas star field (if Three.js fails / reduced motion) ---------- */
-
-  function fallbackToCanvas() {
-    const fallback = document.getElementById('starfield-fallback');
-    if (!fallback) return;
-    fallback.style.display = 'block';
-    const ctx = fallback.getContext('2d');
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  function initCanvasStarfield() {
+    const canvas = document.getElementById('starfield');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
     let stars = [];
+    let shootingStars = [];
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     function resize() {
-      fallback.width = window.innerWidth * dpr;
-      fallback.height = window.innerHeight * dpr;
-      fallback.style.width = window.innerWidth + 'px';
-      fallback.style.height = window.innerHeight + 'px';
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = window.innerWidth + 'px';
+      canvas.style.height = window.innerHeight + 'px';
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.scale(dpr, dpr);
+
       const count = Math.floor((window.innerWidth * window.innerHeight) / 6000);
       stars = Array.from({ length: count }, () => ({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
         r: Math.random() * 1.2 + 0.2,
-        a: Math.random() * 0.6 + 0.2
+        a: Math.random() * 0.6 + 0.2,
+        twinkleSpeed: Math.random() * 0.015 + 0.005,
+        twinkleOffset: Math.random() * Math.PI * 2,
+        // 15% of stars get a colored tint
+        hue: Math.random() < 0.15 ? (Math.random() < 0.5 ? 280 : 330) : 0
       }));
-      // Static draw
+    }
+
+    function spawnShootingStar() {
+      const startSide = Math.random();
+      let x, y, vx, vy;
+      if (startSide < 0.5) {
+        x = Math.random() * window.innerWidth;
+        y = -20;
+        vx = (Math.random() - 0.5) * 4;
+        vy = Math.random() * 4 + 4;
+      } else {
+        x = -20;
+        y = Math.random() * window.innerHeight * 0.6;
+        vx = Math.random() * 4 + 4;
+        vy = Math.random() * 2 + 1;
+      }
+      shootingStars.push({ x, y, vx, vy, life: 1, trail: [] });
+    }
+
+    let frame = 0;
+    function draw() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      const t = frame * 0.01;
+
+      for (const s of stars) {
+        const alpha = s.a + Math.sin(t * s.twinkleSpeed * 60 + s.twinkleOffset) * 0.3;
+        const a = Math.max(0.05, Math.min(1, alpha));
+        if (s.hue) {
+          ctx.fillStyle = `hsla(${s.hue}, 80%, 75%, ${a})`;
+        } else {
+          ctx.fillStyle = `rgba(232, 230, 255, ${a})`;
+        }
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Shooting stars
+      for (let i = shootingStars.length - 1; i >= 0; i--) {
+        const ss = shootingStars[i];
+        ss.trail.push({ x: ss.x, y: ss.y });
+        if (ss.trail.length > 12) ss.trail.shift();
+        ss.x += ss.vx;
+        ss.y += ss.vy;
+        ss.life -= 0.012;
+
+        for (let j = 0; j < ss.trail.length; j++) {
+          const p = ss.trail[j];
+          const a = (j / ss.trail.length) * ss.life * 0.8;
+          ctx.fillStyle = `rgba(183, 148, 255, ${a})`;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 1, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.fillStyle = `rgba(255, 255, 255, ${ss.life})`;
+        ctx.beginPath();
+        ctx.arc(ss.x, ss.y, 1.6, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (ss.life <= 0 || ss.x > window.innerWidth + 50 || ss.y > window.innerHeight + 50) {
+          shootingStars.splice(i, 1);
+        }
+      }
+
+      // Occasional shooting stars (rare so they feel special)
+      if (Math.random() < 0.003 && shootingStars.length < 2) spawnShootingStar();
+
+      frame++;
+      requestAnimationFrame(draw);
+    }
+
+    resize();
+    if (!reduceMotion) {
+      draw();
+    } else {
+      // Render a single static frame for reduced-motion users
       for (const s of stars) {
         ctx.fillStyle = `rgba(232, 230, 255, ${s.a})`;
         ctx.beginPath();
@@ -251,8 +140,12 @@
         ctx.fill();
       }
     }
-    resize();
-    window.addEventListener('resize', resize);
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resize, 200);
+    });
   }
 
   /* ---------- 3. READING PROGRESS BAR ---------- */

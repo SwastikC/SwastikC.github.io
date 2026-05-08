@@ -251,9 +251,9 @@ main, .nav, .footer { position: relative; z-index: 2; }
 
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  font-size: clamp(2.3rem, 6.2vw, 4.6rem);
   font-weight: 300;
-  line-height: 1.05;
+  line-height: 1.08;
   letter-spacing: -0.02em;
   margin-bottom: 2rem;
   animation: fade-up .9s ease 0.2s both;
@@ -1333,24 +1333,15 @@ html.theme-light .theme-toggle .icon-sun { display: block; }
 html.theme-light .theme-toggle .icon-moon { display: none; }
 
 /* ---------- THREE.JS HERO BACKGROUND ---------- */
+/* (Removed — we use the elegant canvas star field instead.
+   The #starfield canvas is styled in the main starfield section above.) */
 
-#hero-3d {
+#starfield {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
 }
-
-#starfield-fallback {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  display: none;
-}
-
-/* Hide the original canvas if 3D loaded */
-#starfield { display: none; }
 
 /* ---------- RESEARCH HIGHLIGHTS ---------- */
 
