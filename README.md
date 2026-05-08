@@ -1,74 +1,115 @@
-# swastikc.github.io
+# swastikc.github.io — v3 (cosmic edition)
 
-Personal site → live at **https://swastikc.github.io**
+Live at **https://swastikc.github.io**
 
-## How this works (so you don't forget again 🙂)
+## What's new in this version
 
-This is a **GitHub Pages** site. Any files in this repo's main branch get
-served at the URL above. There is no build step — the browser loads
-`index.html`, `style.css`, and `script.js` directly.
+- 🌌 **Three.js 3D cosmic hero** — real WebGL star field, orbiting planet, parallax
+- 🎨 **Light/dark mode toggle** — top-right of nav, remembered across visits
+- 📊 **Interactive exoplanet visualization** — scatter plot in the Highlights section, toggle metallicity ↔ age
+- 🖼️ **Research highlights** — visual cards summarizing your 4 main findings with custom SVG figures
+- 📋 **BibTeX copy buttons** — one-click citation copying for each first-author paper
+- 🛠️ **"How I work" section** — your tooling and methodology
+- 📖 **Reading progress bar** — top of viewport, gradient fills as you scroll
+- 📤 **Better form** — uses Formspree if configured, falls back to mailto otherwise
+- 🖼️ **Custom OG share image** — designed 1200×630 image for LinkedIn/Twitter previews
+- ⚡ **Scroll-driven reveal animations** — sections fade in with stagger as they enter view
 
-## Updating the site
+## ⚠️ One setup step: Working contact form (optional)
 
-### Easiest: edit on github.com
-1. Go to <https://github.com/SwastikC/swastikc.github.io>
-2. Click any file → pencil icon → make changes → **Commit changes**
-3. Wait ~1 minute, refresh your live site
+The contact form currently falls back to `mailto:` (opens email client). To make it
+actually submit messages directly:
 
-### Better: clone and edit locally
-```bash
-git clone https://github.com/SwastikC/swastikc.github.io.git
-cd swastikc.github.io
-# edit files in any code editor
-git add .
-git commit -m "Describe your change"
-git push
-```
+1. Go to https://formspree.io and sign up (free, no credit card)
+2. Click **+ New Form**, name it "Personal site", set email to `swastik.chowbay@iiap.res.in`
+3. Copy the form's URL — looks like `https://formspree.io/f/abcd1234`
+4. Open `index.html`, find this line:
+   ```html
+   <form id="contact-form" ... data-endpoint="https://formspree.io/f/YOUR_FORMSPREE_ID">
+   ```
+5. Replace `YOUR_FORMSPREE_ID` with your actual ID
+6. Commit. Done — form now works in-page.
 
-To preview locally before pushing:
-```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
-```
+(If you skip this, the form still works — it just opens the user's email client.)
 
 ## File map
 
-| File         | Purpose                                                    |
-|--------------|------------------------------------------------------------|
-| `index.html` | The whole site (single-page, all sections)                 |
-| `style.css`  | Cosmic dark theme, typography, layout                      |
-| `script.js`  | Star field animation, GitHub repo fetcher, scroll spy      |
-| `hero.png`   | Hero background image                                      |
-| `cv.pdf`     | Downloadable CV (linked from the hero)                     |
+```
+index.html         · single-page site
+cv.pdf             · downloadable CV
+sitemap.xml        · search engine sitemap
+robots.txt         · crawler config
+about.html, research.html, projects.html, contact.html
+                   · redirect pages preserving old URLs
+css/
+  style.css        · all styles (dark + light themes)
+js/
+  script.js        · Three.js, viz, theme, progress, repo fetch
+images/
+  hero.png         · original hero image (kept, no longer used as bg)
+  og-image.png     · designed share image (1200×630)
+  og-image.svg     · source SVG for the share image
+SEO-ACTION-PLAN.md · what to do for search ranking
+```
 
-## What changed from the old site
+## How to update common things
 
-- **Single page** instead of 5 separate pages (Home/About/Research/etc. now
-  sections of one scrolling page, anchored by `#about`, `#research`, …)
-- **Dark cosmic theme** with animated star field and aurora glow
-- **Live GitHub repos** — fetched on page load from
-  `api.github.com/users/SwastikC/repos` (no auth, public endpoint)
-- **Custom typography** — Fraunces (display) + IBM Plex Sans (body) +
-  JetBrains Mono (accents), loaded from Google Fonts
-- **Smooth scroll** with section highlighting in the nav
-- **Reveal-on-scroll** animations (respects `prefers-reduced-motion`)
+### Add a news item
+In `index.html`, find `<ol class="news">` and add at the top:
+```html
+<li class="news-item">
+  <time class="news-item__date" datetime="2026-09">Sep 2026</time>
+  <div class="news-item__body">
+    <h3>Headline</h3>
+    <p>One or two sentences.</p>
+  </div>
+</li>
+```
 
-## Tweaks you might want
+### Add a paper
+In `index.html`, find `<ol class="pubs">` and copy any existing `<li class="pub">` block.
 
-- **Change name in repo cards**: in `script.js`, search for `SwastikC`
-  in the `fetch(...)` URL.
-- **Add publication**: in `index.html`, find `<div class="papers">` and
-  copy any `<article class="paper">` block.
-- **Change colours**: top of `style.css`, the `:root` block has every
-  colour as a CSS variable.
-- **Add Google Analytics / Plausible**: paste the snippet just before
-  `</head>` in `index.html`.
+### Change the colour palette
+Top of `css/style.css` — the `:root` block has every colour as a CSS variable.
+Theme-light overrides are in the `html.theme-light` block further down.
 
-## Old multi-page files
+### Update the OG share image
+Edit `images/og-image.svg`, then regenerate the PNG with any SVG-to-PNG tool
+(or send me the SVG and I'll regenerate).
 
-If your repo still contains `about.html`, `research.html`, `projects.html`,
-and `contact.html` from the previous version, you can either:
-- Delete them (the new `index.html` covers everything via anchor links), or
-- Keep them — they'll still work as stand-alone pages.
+## Local preview
+```bash
+python3 -m http.server 8000
+# open http://localhost:8000
+```
 
-The footer of the old pages links back to `index.html`, so nothing breaks.
+## Phase 2 — Done! What I integrated
+
+I extracted the real numerical data from your **Swastik et al. 2021** paper
+(AJ 161, 114) Table 1 — all 22 directly-imaged planet host stars with their
+[Fe/H], planet mass, age, and Teff values from your paper.
+
+What's now using real data:
+- **Interactive scatter plot** — every dot is a real star from your sample
+  (HR 8799, Beta Pic, 51 Eri, PDS 70, LkCa 15, etc.). Hover and you see
+  the actual star name and the actual published values.
+- **Metallicity-mass scatter** in the highlights card — real points from
+  your Table 1 (22 systems plotted at their published [Fe/H] and M_p).
+- **Stats** in the highlight cards — mean [Fe/H] of −0.04±0.27 dex matches
+  your paper's published value exactly (verified my extraction: −0.037).
+
+What's still placeholder (would need files from you):
+- The **LkCa 15 disk image** in the polarimetric highlight card — currently
+  a stylized SVG. To use the real reduced image, send me the FITS or
+  high-res PNG from your paper.
+- The **GAIA DR3 paper** highlight card uses an illustrative galactic-disk
+  scatter rather than your actual 2023 dataset, since I don't have access
+  to that paper's table. Send me the paper's data table (or the AJ figure)
+  and I'll wire it in.
+
+## What I CAN'T do without you sending files
+
+- Use real reduced images (LkCa 15, PDS 70 from your imaging papers)
+- Pull data from papers I don't have access to (your 2023 GAIA paper's
+  full table isn't in arxiv text; I'd need a CSV or the figure file)
+- Add a personal photo to the About section

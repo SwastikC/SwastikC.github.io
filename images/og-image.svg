@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="bg" cx="30%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#1a1148"/>
+      <stop offset="100%" stop-color="#07061a"/>
+    </radialGradient>
+    <radialGradient id="planet" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ffd0e8"/>
+      <stop offset="40%" stop-color="#b794ff"/>
+      <stop offset="100%" stop-color="#3a1f6b"/>
+    </radialGradient>
+    <radialGradient id="moon" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#e8e6ff"/>
+      <stop offset="100%" stop-color="#6be1ff"/>
+    </radialGradient>
+    <linearGradient id="title" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b794ff"/>
+      <stop offset="50%" stop-color="#ff6aa6"/>
+      <stop offset="100%" stop-color="#6be1ff"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="20"/>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Aurora glow blobs -->
+  <ellipse cx="200" cy="150" rx="350" ry="200" fill="#b794ff" opacity="0.18" filter="url(#glow)"/>
+  <ellipse cx="1000" cy="500" rx="320" ry="200" fill="#ff6aa6" opacity="0.12" filter="url(#glow)"/>
+
+  <!-- Stars (random scattered) -->
+  <g fill="#e8e6ff">
+    <circle cx="80"  cy="60"  r="1.2" opacity="0.7"/>
+    <circle cx="180" cy="120" r="0.8" opacity="0.5"/>
+    <circle cx="320" cy="80"  r="1.5" opacity="0.9"/>
+    <circle cx="450" cy="40"  r="0.9" opacity="0.6"/>
+    <circle cx="580" cy="100" r="1.1" opacity="0.8"/>
+    <circle cx="720" cy="70"  r="0.7" opacity="0.5"/>
+    <circle cx="860" cy="130" r="1.3" opacity="0.85"/>
+    <circle cx="1100" cy="80" r="1.0" opacity="0.7"/>
+    <circle cx="1150" cy="200" r="1.5" opacity="0.9"/>
+    <circle cx="60"  cy="280" r="0.9" opacity="0.6"/>
+    <circle cx="140" cy="380" r="1.4" opacity="0.85"/>
+    <circle cx="40"  cy="500" r="1.0" opacity="0.7"/>
+    <circle cx="220" cy="550" r="1.2" opacity="0.8"/>
+    <circle cx="380" cy="580" r="0.8" opacity="0.5"/>
+    <circle cx="540" cy="600" r="1.1" opacity="0.7"/>
+    <circle cx="850" cy="580" r="1.3" opacity="0.85"/>
+    <circle cx="1080" cy="540" r="0.9" opacity="0.6"/>
+    <circle cx="1140" cy="450" r="1.5" opacity="0.95"/>
+    <circle cx="700" cy="250" r="0.7" opacity="0.4"/>
+    <circle cx="280" cy="220" r="0.6" opacity="0.4"/>
+  </g>
+
+  <!-- Pink/magenta tinted stars -->
+  <g fill="#ff6aa6">
+    <circle cx="950" cy="180" r="1.8" opacity="0.8"/>
+    <circle cx="120" cy="450" r="1.5" opacity="0.7"/>
+  </g>
+
+  <!-- Cyan tinted stars -->
+  <g fill="#6be1ff">
+    <circle cx="780" cy="380" r="1.7" opacity="0.8"/>
+    <circle cx="350" cy="320" r="1.4" opacity="0.7"/>
+  </g>
+
+  <!-- Main planet (right side, soft) -->
+  <g transform="translate(950, 350)">
+    <ellipse cx="0" cy="0" rx="180" ry="35" stroke="#ff6aa6" stroke-width="1.5" fill="none" opacity="0.45" transform="rotate(-15)"/>
+    <ellipse cx="0" cy="0" rx="200" ry="40" stroke="#b794ff" stroke-width="1" fill="none" opacity="0.3" transform="rotate(-15)"/>
+    <circle r="120" fill="url(#planet)" filter="url(#softglow)"/>
+    <circle r="115" fill="url(#planet)"/>
+    <!-- Surface details -->
+    <ellipse cx="-20" cy="-30" rx="50" ry="15" fill="#ffd0e8" opacity="0.25"/>
+    <ellipse cx="30" cy="20"  rx="40" ry="12" fill="#3a1f6b" opacity="0.4"/>
+  </g>
+
+  <!-- Small moon -->
+  <circle cx="780" cy="200" r="22" fill="url(#moon)" filter="url(#softglow)" opacity="0.85"/>
+
+  <!-- Sparkle accents -->
+  <g fill="#ffffff" opacity="0.95">
+    <path d="M 660 140 L 663 152 L 675 155 L 663 158 L 660 170 L 657 158 L 645 155 L 657 152 Z"/>
+    <path d="M 1090 320 L 1092 326 L 1098 328 L 1092 330 L 1090 336 L 1088 330 L 1082 328 L 1088 326 Z"/>
+  </g>
+
+  <!-- Decorative star symbol (manual path so it renders without font) -->
+  <g transform="translate(120, 165)" fill="#b794ff" opacity="0.85">
+    <path d="M 0 -25 L 6 -6 L 25 0 L 6 6 L 0 25 L -6 6 L -25 0 L -6 -6 Z"/>
+  </g>
+
+  <!-- Main title -->
+  <text x="100" y="320" font-family="Georgia, 'Times New Roman', serif" font-size="80" font-weight="300" fill="#e8e6ff" letter-spacing="-2">Swastik</text>
+  <text x="100" y="400" font-family="Georgia, 'Times New Roman', serif" font-size="80" font-weight="300" font-style="italic" fill="url(#title)" letter-spacing="-2">Chowbay</text>
+
+  <!-- Subtitle -->
+  <text x="100" y="455" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#9a93c4" letter-spacing="2">A S T R O P H Y S I C I S T</text>
+
+  <!-- Tagline -->
+  <text x="100" y="510" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-style="italic" fill="#b794ff">Reading the chemistry of stars</text>
+  <text x="100" y="540" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-style="italic" fill="#b794ff">to find new worlds.</text>
+
+  <!-- URL -->
+  <text x="100" y="595" font-family="monospace" font-size="16" fill="#6b6493" letter-spacing="2">swastikc.github.io</text>
+
+  <!-- Bottom-right credentials -->
+  <text x="1100" y="595" font-family="monospace" font-size="14" fill="#6b6493" text-anchor="end" letter-spacing="1">Università degli Studi di Milano</text>
+</svg>
