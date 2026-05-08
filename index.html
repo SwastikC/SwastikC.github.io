@@ -1,121 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Swastik Chowbay | Astrophysicist</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <!-- Global header -->
-    <header>
-      <div class="logo">Swastik C</div>
-      <div class="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Swastik Chowbay — Astrophysicist studying exoplanet host stars, stellar ages, and protoplanetary disks at Università degli Studi di Milano." />
+  <title>Swastik Chowbay · Astrophysicist</title>
 
-    <!-- Hero section -->
-    <section class="hero">
-      <div>
-        <h1>Hello, I'm Swastik Chowbay</h1>
-        <p>
-          Astrophysicist exploring the cosmos and unveiling the secrets of
-          exoplanets. Welcome to my personal website where I share my
-          research, projects and passion for astronomy.
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated star field -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <!-- Aurora glow overlays -->
+  <div class="aurora aurora-1" aria-hidden="true"></div>
+  <div class="aurora aurora-2" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__logo">
+      <span class="nav__logo-mark">✦</span>
+      <span class="nav__logo-text">Swastik C.</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#about" data-link>About</a>
+      <a href="#research" data-link>Research</a>
+      <a href="#projects" data-link>Projects</a>
+      <a href="#code" data-link>Code</a>
+      <a href="#contact" data-link>Contact</a>
+    </nav>
+    <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero__inner">
+        <p class="hero__eyebrow">
+          <span class="pulse"></span>
+          Postdoctoral Fellow · Università degli Studi di Milano
         </p>
-        <a href="research.html" class="btn">Discover My Research</a>
+        <h1 class="hero__title">
+          Reading the<br />
+          <span class="hero__title-accent">chemistry of stars</span><br />
+          to find new worlds.
+        </h1>
+        <p class="hero__lede">
+          I'm Swastik Chowbay — an astrophysicist studying how the
+          composition and age of host stars shape the planets that orbit
+          them, and imaging the dust-and-gas disks where those planets
+          are still being born.
+        </p>
+        <div class="hero__cta">
+          <a href="#research" class="btn btn--primary">Explore Research</a>
+          <a href="cv.pdf" class="btn btn--ghost" download>
+            <span>Download CV</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>
+          </a>
+        </div>
+        <div class="hero__meta">
+          <div><span class="hero__meta-num">8+</span><span class="hero__meta-lbl">Publications</span></div>
+          <div><span class="hero__meta-num">100h</span><span class="hero__meta-lbl">HCT Telescope time</span></div>
+          <div><span class="hero__meta-num">5</span><span class="hero__meta-lbl">Students mentored</span></div>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <span>scroll</span>
+        <div class="hero__scroll-line"></div>
       </div>
     </section>
 
-    <!-- About preview -->
-    <section id="about-preview">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <p>
-          I'm a postdoctoral fellow at the Università degli Studi di Milano,
-          passionate about astrophysics and the search for exoplanets. With a
-          rich academic background and hands‑on experience in observational
-          astronomy, my work spans from studying the chemical evolution of
-          stars to mentoring the next generation of scientists.
-        </p>
-        <a href="about.html" class="btn">Read More</a>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="section__head">
+        <span class="section__num">01</span>
+        <h2 class="section__title">About</h2>
+      </div>
+      <div class="about">
+        <div class="about__bio">
+          <p class="lede">
+            Trained at the Indian Institute of Astrophysics, with stops at
+            ESO Santiago and the University of Hyderabad, I now work at the
+            <em>Università degli Studi di Milano</em> on exoplanetary science
+            and stellar astrophysics.
+          </p>
+          <p>
+            My doctoral work focused on the chemical and kinematic
+            fingerprints of exoplanet host stars — how metallicity,
+            galactic origin, and age conspire to produce the planets we
+            observe. More recently I've moved into high-contrast imaging,
+            modeling protoplanetary disks observed with VLT/SPHERE.
+          </p>
+          <p>
+            Outside research, I mentor masters students, run sky-watch
+            programs for under-resourced schools in and around Bangalore
+            (supported by the IAU's Open Astronomy Schools project), and
+            volunteer with animal-rights groups in India.
+          </p>
+        </div>
+
+        <aside class="about__panel">
+          <h3 class="panel__title">At a glance</h3>
+          <dl class="panel__dl">
+            <dt>Based in</dt><dd>Milan, Italy</dd>
+            <dt>From</dt><dd>India</dd>
+            <dt>Languages</dt><dd>English · Hindi · Bengali · Assamese · Spanish (A1)</dd>
+            <dt>Stack</dt><dd><code>Python</code> · <code>IDL</code> · <code>R</code> · <code>iSpec</code> · <code>RADMC-3D</code> · <code>IRDAP</code></dd>
+          </dl>
+
+          <h3 class="panel__title panel__title--mt">Timeline</h3>
+          <ol class="timeline">
+            <li><span class="timeline__year">2024 →</span><span class="timeline__role">Postdoc, U. Milano</span></li>
+            <li><span class="timeline__year">2024</span><span class="timeline__role">Postdoc, IIA Bengaluru</span></li>
+            <li><span class="timeline__year">2018–24</span><span class="timeline__role">Ph.D., IIA Bengaluru</span></li>
+            <li><span class="timeline__year">2021</span><span class="timeline__role">Intern, ESO Santiago</span></li>
+            <li><span class="timeline__year">2016–18</span><span class="timeline__role">M.Sc., U. Hyderabad</span></li>
+            <li><span class="timeline__year">2013–16</span><span class="timeline__role">B.Sc., U. Calcutta</span></li>
+          </ol>
+        </aside>
       </div>
     </section>
 
-    <!-- Research highlights -->
-    <section id="highlights">
-      <div class="container">
-        <h2 class="section-title">Research Highlights</h2>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Host‑Star Metallicity of Directly Imaged Wide‑Orbit Planets</h3>
-            <p>
-              Investigating how the chemical composition of stars influences
-              the formation of giant planets, published in the
-              <em>Astronomical Journal</em> (2021).
-            </p>
+    <!-- RESEARCH -->
+    <section class="section" id="research">
+      <div class="section__head">
+        <span class="section__num">02</span>
+        <h2 class="section__title">Research</h2>
+      </div>
+
+      <p class="section__lede">
+        Selected publications. Full list on
+        <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Swastik%22" target="_blank" rel="noopener">ADS</a>.
+      </p>
+
+      <div class="papers">
+        <article class="paper">
+          <div class="paper__meta">
+            <span class="paper__year">2024</span>
+            <span class="paper__journal">AJ · 167, 270</span>
           </div>
-          <div class="card">
-            <h3>
-              Galactic Chemical Evolution of Exoplanet Host‑Stars: Are
-              High‑Mass Planetary Systems Young?
-            </h3>
-            <p>
-              Examining the age and mass distribution of planetary systems
-              across our galaxy to understand whether massive systems are
-              young, published in the <em>Astronomical Journal</em> (2022).
-            </p>
+          <h3 class="paper__title">Age analysis of exoplanet hosting stars from isochrone models</h3>
+          <p class="paper__abstract">
+            Deriving stellar ages via isochrone fitting to disentangle the
+            age–mass relationship of planet-hosting stars across our galaxy.
+          </p>
+          <p class="paper__authors"><strong>C. Swastik</strong>, R. K. Banyal, M. Narang, A. Unni, T. Sivarani</p>
+        </article>
+
+        <article class="paper">
+          <div class="paper__meta">
+            <span class="paper__year">2023</span>
+            <span class="paper__journal">AJ · 166, 91</span>
           </div>
-          <div class="card">
-            <h3>Age Distribution of Exoplanet Host‑Stars</h3>
-            <p>
-              Combining chemical and kinematic proxies from GAIA DR3 to
-              unravel the ages of stars hosting exoplanets, published in the
-              <em>Astronomical Journal</em> (2023).
-            </p>
+          <h3 class="paper__title">Age Distribution of Exoplanet Host-Stars: Chemical &amp; Kinematic Age Proxies from GAIA DR3</h3>
+          <p class="paper__abstract">
+            Combining chemical abundances with stellar kinematics to estimate
+            ages — and finding that high-mass planetary systems skew young.
+          </p>
+          <p class="paper__authors"><strong>C. Swastik</strong>, R. K. Banyal, M. Narang, A. Unni, B. Banerjee, P. Manoj, T. Sivarani</p>
+        </article>
+
+        <article class="paper">
+          <div class="paper__meta">
+            <span class="paper__year">2022</span>
+            <span class="paper__journal">AJ · 164, 60</span>
           </div>
+          <h3 class="paper__title">Galactic Chemical Evolution of Exoplanet Host-Stars: Are High-Mass Planetary Systems Young?</h3>
+          <p class="paper__abstract">
+            Examining mass and age distributions of planetary systems to test
+            whether massive systems are systematically younger.
+          </p>
+          <p class="paper__authors"><strong>C. Swastik</strong> et al.</p>
+        </article>
+
+        <article class="paper">
+          <div class="paper__meta">
+            <span class="paper__year">2021</span>
+            <span class="paper__journal">AJ · 161, 114</span>
+          </div>
+          <h3 class="paper__title">Host-Star Metallicity of Directly Imaged Wide-Orbit Planets</h3>
+          <p class="paper__abstract">
+            How metal-rich environments influence the formation of giant
+            planets discovered through direct imaging.
+          </p>
+          <p class="paper__authors"><strong>C. Swastik</strong>, R. K. Banyal, M. Narang, P. Manoj, T. Sivarani, B. E. Reddy, S. P. Rajaguru</p>
+        </article>
+
+        <article class="paper paper--inreview">
+          <div class="paper__meta">
+            <span class="paper__year">In review</span>
+            <span class="paper__journal">A&amp;A</span>
+          </div>
+          <h3 class="paper__title">Artefact-free total intensity and polarimetric imaging of the LkCa 15 system</h3>
+          <p class="paper__abstract">
+            Polarimetric differential imaging of the LkCa 15 protoplanetary
+            disk with VLT/SPHERE — total intensity and polarized light.
+          </p>
+          <p class="paper__authors"><strong>C. Swastik</strong>, Z. Wahhaj, et al.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS / OBSERVATIONS -->
+    <section class="section" id="projects">
+      <div class="section__head">
+        <span class="section__num">03</span>
+        <h2 class="section__title">Observations &amp; Mentorship</h2>
+      </div>
+
+      <div class="projects">
+        <div class="project-card project-card--feature">
+          <div class="project-card__tag">Principal Investigator</div>
+          <h3>VLT / SPHERE — P116 cycle</h3>
+          <p>4.5 hours of awarded telescope time to image three faint protoplanetary disks, with four further proposals submitted as PI for upcoming cycles.</p>
+          <div class="project-card__stat">
+            <span>4.5h</span>
+            <small>awarded · 3 disks</small>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card__tag">Co-PI</div>
+          <h3>VLT / SPHERE proposals</h3>
+          <p>Co-investigator on three successful telescope-time awards at VLT/SPHERE for high-contrast disk imaging.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card__tag">PI · India</div>
+          <h3>Hanle / HCT — HFOSC</h3>
+          <p>~100 hours over three cycles on the Himalayan Chandra Telescope's Faint Object Spectrograph Camera.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card__tag">Campaign Lead</div>
+          <h3>HIP 41378 f transit</h3>
+          <p>Led a worldwide photometric &amp; spectroscopic transit campaign, observing as PI from GROWTH-Hanle and JCBT-Kavalur.</p>
+        </div>
+      </div>
+
+      <div class="mentees">
+        <h3 class="mentees__title">Students mentored</h3>
+        <ul class="mentees__list">
+          <li><strong>Catherine John</strong> · Christ University, Bengaluru — Demographics of exoplanets: mass-radius relation</li>
+          <li><strong>Aarthi Krishna</strong> · IISER Tirupati — Brown-dwarf desert via direct-imaging host stars</li>
+          <li><strong>Athul Rathnakar</strong> · St. Xavier's, Bangalore — Stellar ages of FGK stars from isochrones</li>
+          <li><strong>Satyam Soni</strong> · NIT Rourkela — Brown-dwarf desert in directly-imaged exoplanets</li>
+          <li><strong>Tisyagupta Pyne</strong> · Visva-Bharati — 10 pc neighbourhood of habitable-zone systems</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CODE / GITHUB -->
+    <section class="section" id="code">
+      <div class="section__head">
+        <span class="section__num">04</span>
+        <h2 class="section__title">Code &amp; Open Source</h2>
+      </div>
+
+      <p class="section__lede">
+        Live from
+        <a href="https://github.com/SwastikC" target="_blank" rel="noopener">github.com/SwastikC</a> —
+        repositories, sorted by recent activity.
+      </p>
+
+      <div class="repos" id="repos">
+        <div class="repos__loading">
+          <div class="spinner"></div>
+          <p>Fetching repositories from GitHub…</p>
         </div>
       </div>
     </section>
 
-    <!-- Call to action -->
-    <section id="call-to-action">
-      <div class="container" style="text-align: center;">
-        <h2 class="section-title">Get in Touch</h2>
-        <p>
-          If you'd like to collaborate, discuss research, or just say hello,
-          feel free to reach out!
-        </p>
-        <a href="contact.html" class="btn">Contact Me</a>
+    <!-- CONTACT -->
+    <section class="section section--contact" id="contact">
+      <div class="section__head">
+        <span class="section__num">05</span>
+        <h2 class="section__title">Contact</h2>
+      </div>
+
+      <div class="contact">
+        <div class="contact__intro">
+          <h3>Let's talk about stars.</h3>
+          <p>
+            Open to research collaborations, telescope-time partnerships,
+            student supervision enquiries, and outreach invitations.
+            Drop a line — I read everything.
+          </p>
+          <ul class="contact__links">
+            <li>
+              <span class="contact__lbl">Email</span>
+              <a href="mailto:swastik.chowbay@iiap.res.in">swastik.chowbay@iiap.res.in</a>
+            </li>
+            <li>
+              <span class="contact__lbl">GitHub</span>
+              <a href="https://github.com/SwastikC" target="_blank" rel="noopener">@SwastikC</a>
+            </li>
+            <li>
+              <span class="contact__lbl">Affiliation</span>
+              <span>Università degli Studi di Milano</span>
+            </li>
+          </ul>
+        </div>
+
+        <form id="contact-form" class="contact__form">
+          <label>
+            <span>Your name</span>
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            <span>Your email</span>
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            <span>Your message</span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button type="submit" class="btn btn--primary">
+            Send message
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg>
+          </button>
+        </form>
       </div>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>&copy; 2026 Swastik Chowbay &ndash; All rights reserved.</p>
-      <p>Based in Milan, Italy</p>
-      <p>
-        <a
-          href="https://github.com/SwastikC"
-          target="_blank"
-          rel="noopener"
-          >GitHub</a
-        >
-        |
-        <a href="mailto:swastik.chowbay@iiap.res.in">Email</a>
+  <footer class="footer">
+    <div class="footer__inner">
+      <p>© 2026 Swastik Chowbay · Made in Milan</p>
+      <p class="footer__credits">
+        <a href="https://github.com/SwastikC" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="mailto:swastik.chowbay@iiap.res.in">Email</a> ·
+        <a href="cv.pdf" download>CV</a>
       </p>
-    </footer>
+    </div>
+  </footer>
 
-    <script src="js/script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
