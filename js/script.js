@@ -154,7 +154,7 @@
   }
 
   // Scroll-spy: highlight current section in nav
-  const sections = ['about', 'research', 'projects', 'code', 'contact']
+  const sections = ['about', 'research', 'publications', 'talks', 'news', 'projects', 'code', 'contact']
     .map(id => document.getElementById(id))
     .filter(Boolean);
 
@@ -175,7 +175,7 @@
   /* ---------- 3. Reveal-on-scroll ---------- */
 
   const revealTargets = document.querySelectorAll(
-    '.about, .papers, .projects, .mentees, .repos, .contact, .section__head'
+    '.about, .themes, .pubs, .talks, .news, .projects, .mentees, .repos, .contact, .section__head'
   );
   revealTargets.forEach(el => el.classList.add('reveal'));
 

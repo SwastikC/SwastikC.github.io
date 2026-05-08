@@ -909,3 +909,319 @@ main, .nav, .footer { position: relative; z-index: 2; }
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ============================================================
+   Additional sections: profile links, themes, pubs, talks, news
+   ============================================================ */
+
+/* ---------- Hero profile chip strip ---------- */
+
+.hero__profiles {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: -1.5rem 0 3rem;
+  padding: 0;
+  animation: fade-up 1s ease 0.55s both;
+}
+
+.hero__profiles a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.9rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  color: var(--ink-mute);
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+  transition: all .25s ease;
+}
+
+.hero__profiles a:hover {
+  color: var(--ink);
+  border-color: var(--accent);
+  background: rgba(183, 148, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.hero__profiles svg { opacity: 0.85; }
+
+/* ---------- Research themes ---------- */
+
+.themes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.theme {
+  padding: 1.8rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  transition: all .3s ease;
+  position: relative;
+}
+
+.theme::before {
+  content: "✦";
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  color: var(--accent);
+  opacity: 0.4;
+  font-size: 1.1rem;
+  transition: all .3s ease;
+}
+
+.theme:hover {
+  border-color: var(--accent);
+  background: var(--card-hover);
+  transform: translateY(-2px);
+}
+.theme:hover::before {
+  opacity: 1;
+  transform: rotate(180deg);
+}
+
+.theme h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+  color: var(--ink);
+  padding-right: 1.5rem;
+}
+
+.theme p { color: var(--ink-mute); font-size: 0.95rem; }
+
+/* ---------- Publications (full list) ---------- */
+
+.pubs {
+  list-style: none;
+  counter-reset: pub-counter;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.pub {
+  counter-increment: pub-counter;
+  padding: 1.8rem 0 1.8rem 4rem;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  transition: padding .3s ease;
+}
+
+.pub::before {
+  content: counter(pub-counter, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 1.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+  letter-spacing: 0.05em;
+}
+
+.pub:hover::before { color: var(--accent); }
+
+.pub__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  align-items: center;
+}
+
+.pub__year { color: var(--accent); }
+.pub__journal { color: var(--ink-dim); }
+
+.pub__role {
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: 0.65rem;
+  color: var(--ink-mute);
+}
+.pub__role--first {
+  border-color: rgba(255, 106, 166, 0.4);
+  color: var(--accent-hot);
+  background: rgba(255, 106, 166, 0.06);
+}
+
+.pub--inreview .pub__year { color: var(--accent-hot); }
+
+.pub__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+  color: var(--ink);
+}
+
+.pub__authors {
+  font-size: 0.88rem;
+  color: var(--ink-dim);
+  font-style: italic;
+  margin-bottom: 0.6rem;
+}
+.pub__authors strong { color: var(--accent); font-style: normal; font-weight: 500; }
+
+.pub__abstract { color: var(--ink-mute); font-size: 0.95rem; }
+
+@media (max-width: 600px) {
+  .pub { padding-left: 0; }
+  .pub::before { position: static; display: block; margin-bottom: 0.4rem; }
+}
+
+/* ---------- Talks ---------- */
+
+.talks {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.talk {
+  display: flex;
+  gap: 1.2rem;
+  padding: 1.4rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition: background .25s ease;
+}
+
+.talk:hover { background: rgba(183, 148, 255, 0.04); }
+
+.talk__date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 60px;
+  padding-top: 0.2rem;
+}
+
+.talk__year {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.talk__when {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-dim);
+  margin-top: 0.4rem;
+}
+
+.talk__body h3 {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+
+.talk__body p {
+  font-size: 0.85rem;
+  color: var(--ink-mute);
+}
+
+.talks__more {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--ink-mute);
+  font-style: italic;
+}
+
+/* ---------- News ---------- */
+
+.news {
+  list-style: none;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.news::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  opacity: 0.4;
+}
+
+.news-item {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.news-item::before {
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: 6px;
+  width: 15px;
+  height: 15px;
+  background: var(--bg-deep);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--accent-glow);
+  transition: all .3s ease;
+}
+
+.news-item:hover::before {
+  background: var(--accent);
+  transform: scale(1.2);
+}
+
+.news-item__date {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-dim);
+  margin-bottom: 0.3rem;
+}
+
+.news-item__body h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.news-item__body p {
+  color: var(--ink-mute);
+  font-size: 0.95rem;
+  max-width: 700px;
+}
+
+/* Tighten panel code chips so they wrap nicely */
+.panel__dl code {
+  margin: 2px 4px 2px 0;
+}
