@@ -218,29 +218,24 @@
         </g>
 
         <!-- Main planet system: gentle drift + ring rotation -->
-        <g class="planet-system" opacity="0.65">
-          <g transform="translate(1020, 570)">
+        <g class="planet-system" opacity="0.55">
+          <g transform="translate(1080, 640)">
             <!-- Glow halo (smaller) -->
-            <circle r="125" fill="url(#planet-glow)"/>
+            <circle r="110" fill="url(#planet-glow)"/>
             <!-- Rings (rotate slowly) -->
             <g class="rings">
-              <!-- Outer ring -->
-              <ellipse cx="0" cy="0" rx="150" ry="32" stroke="#b794ff" stroke-width="1" fill="none" opacity="0.25"/>
-              <!-- Inner ring -->
-              <ellipse cx="0" cy="0" rx="133" ry="28" stroke="#ff6aa6" stroke-width="1.2" fill="none" opacity="0.45"/>
-              <!-- Back half of ring (gets occluded by planet) -->
-              <path d="M -133 0 A 133 28 0 0 0 133 0" stroke="#b794ff" stroke-width="1" fill="none" opacity="0.15"/>
+              <ellipse cx="0" cy="0" rx="130" ry="28" stroke="#b794ff" stroke-width="1" fill="none" opacity="0.22"/>
+              <ellipse cx="0" cy="0" rx="115" ry="24" stroke="#ff6aa6" stroke-width="1" fill="none" opacity="0.38"/>
+              <path d="M -115 0 A 115 24 0 0 0 115 0" stroke="#b794ff" stroke-width="0.8" fill="none" opacity="0.12"/>
             </g>
-            <!-- Planet body (smaller, slightly less saturated) -->
             <g class="planet-body">
-              <circle r="95" fill="url(#planet-grad)"/>
-              <ellipse cx="-17" cy="-27" rx="37" ry="11" fill="#ffd0e8" opacity="0.18"/>
-              <ellipse cx="20" cy="14" rx="28" ry="9" fill="#3a1f6b" opacity="0.3"/>
+              <circle r="80" fill="url(#planet-grad)"/>
+              <ellipse cx="-14" cy="-22" rx="32" ry="9" fill="#ffd0e8" opacity="0.16"/>
+              <ellipse cx="17" cy="12" rx="24" ry="8" fill="#3a1f6b" opacity="0.28"/>
             </g>
-            <!-- Front half of rings (passes over planet) -->
             <g class="rings-front">
-              <path d="M -133 0 A 133 28 0 0 1 133 0" stroke="#ff6aa6" stroke-width="1.2" fill="none" opacity="0.45"/>
-              <path d="M -150 0 A 150 32 0 0 1 150 0" stroke="#b794ff" stroke-width="1" fill="none" opacity="0.25"/>
+              <path d="M -115 0 A 115 24 0 0 1 115 0" stroke="#ff6aa6" stroke-width="1" fill="none" opacity="0.38"/>
+              <path d="M -130 0 A 130 28 0 0 1 130 0" stroke="#b794ff" stroke-width="1" fill="none" opacity="0.22"/>
             </g>
           </g>
         </g>
@@ -265,10 +260,8 @@
         </div>
 
         <h1 class="hero__title" id="hero-title">
-          Every star<br />
-          tells a <span class="hero__title-accent">story.</span><br />
-          I read them in<br />
-          their chemistry.
+          Every star tells a <span class="hero__title-accent">story.</span><br />
+          I read them in their chemistry.
         </h1>
         <p class="hero__lede">
           I'm Swastik Chowbay — an astrophysicist studying how the
