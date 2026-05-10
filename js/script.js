@@ -184,7 +184,7 @@
     });
   }
 
-  const sectionIds = ['about', 'research', 'highlights', 'publications', 'talks', 'news', 'projects', 'methodology', 'code', 'contact'];
+  const sectionIds = ['about', 'research', 'highlights', 'publications', 'observations', 'talks', 'funding', 'news', 'mentorship', 'code', 'contact'];
   const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 
   if ('IntersectionObserver' in window) {
@@ -203,7 +203,7 @@
 
   /* ---------- 5. SCROLL-DRIVEN REVEALS (more dramatic) ---------- */
 
-  const revealTargets = document.querySelectorAll('[data-reveal], .section__head, .about, .themes, .pubs, .talks, .news, .projects, .mentees, .repos, .contact, .highlights__grid, .methodology__grid, .viz');
+  const revealTargets = document.querySelectorAll('[data-reveal], .section__head, .about, .themes, .pubs, .talks, .news, .projects, .mentees, .service, .repos, .contact, .highlights__grid, .funding, .viz');
   revealTargets.forEach(el => el.classList.add('reveal'));
 
   if ('IntersectionObserver' in window) {

@@ -1786,3 +1786,445 @@ html.theme-light .hero__inner {
   margin-bottom: 0.25rem;
   font-weight: 500;
 }
+
+/* ============================================================
+   PHASE 3: animated cosmic scene, ERC badge, funding cards
+   ============================================================ */
+
+/* ---------- HERO COSMIC SCENE ---------- */
+
+.hero--cosmic {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.cosmic-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Aurora blobs drift */
+@keyframes aurora-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.05); }
+}
+@keyframes aurora-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, 40px) scale(1.08); }
+}
+
+.aurora-blob--1 {
+  animation: aurora-drift-1 30s ease-in-out infinite;
+  transform-origin: center;
+}
+.aurora-blob--2 {
+  animation: aurora-drift-2 36s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Star twinkles — 3 staggered animations */
+@keyframes twinkle-1 {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+@keyframes twinkle-2 {
+  0%, 100% { opacity: 1; }
+  60% { opacity: 0.45; }
+}
+@keyframes twinkle-3 {
+  0%, 100% { opacity: 1; }
+  40% { opacity: 0.55; }
+}
+
+.cosmic-scene .t-1 { animation: twinkle-1 4s ease-in-out infinite; }
+.cosmic-scene .t-2 { animation: twinkle-2 5s ease-in-out infinite; }
+.cosmic-scene .t-3 { animation: twinkle-3 6s ease-in-out infinite; }
+
+/* Sparkle pulse + slow rotate */
+@keyframes sparkle-pulse {
+  0%, 100% { opacity: 0.95; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.7); }
+}
+.sparkle--a { animation: sparkle-pulse 4s ease-in-out infinite; transform-origin: 660px 155px; }
+.sparkle--b { animation: sparkle-pulse 5s ease-in-out 1s infinite; transform-origin: 1090px 333px; }
+.sparkle--c { animation: sparkle-pulse 4.5s ease-in-out 2s infinite; transform-origin: 250px 660px; }
+
+/* Big sparkle slow rotation */
+@keyframes big-sparkle-rotate {
+  0%, 100% { opacity: 0.85; transform: rotate(0deg) scale(1); }
+  50% { opacity: 0.55; transform: rotate(45deg) scale(0.92); }
+}
+.big-sparkle {
+  animation: big-sparkle-rotate 8s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+/* Moon slow orbit */
+@keyframes moon-orbit {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-10px, 6px); }
+}
+.moon-orbit {
+  animation: moon-orbit 22s ease-in-out infinite;
+}
+
+/* Planet system gentle horizontal drift */
+@keyframes planet-drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-15px, 8px); }
+}
+.planet-system {
+  animation: planet-drift 24s ease-in-out infinite;
+}
+
+/* Rings rotate around the planet's z-axis (looks like the rings turn) */
+@keyframes ring-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.rings, .rings-front {
+  animation: ring-rotate 120s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+/* Rings should rotate around the planet's center, not the SVG origin.
+   Since they're nested inside transform="translate(950, 500)", the
+   transform-origin is relative to that group's local 0,0. */
+.planet-system .rings,
+.planet-system .rings-front {
+  transform-origin: 0 0;
+}
+
+/* Planet body — very subtle "atmospheric circulation" via slight breath */
+@keyframes planet-breath {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.015); }
+}
+.planet-body {
+  animation: planet-breath 8s ease-in-out infinite;
+  transform-origin: 0 0;
+}
+
+/* ---------- HERO LAYOUT OVER SCENE ---------- */
+
+.hero--cosmic .hero__inner {
+  position: relative;
+  z-index: 2;
+  /* Push content to the left so it doesn't overlap the planet on the right */
+  max-width: 640px;
+  padding: 8rem var(--pad) 4rem;
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    rgba(7, 6, 26, 0.7) 0%,
+    rgba(7, 6, 26, 0.45) 50%,
+    transparent 80%
+  );
+  margin: 0 auto 0 0;
+  border-radius: 0;
+}
+
+html.theme-light .hero--cosmic .hero__inner {
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    rgba(248, 246, 255, 0.85) 0%,
+    rgba(248, 246, 255, 0.55) 50%,
+    transparent 80%
+  );
+}
+
+@media (max-width: 900px) {
+  .hero--cosmic .hero__inner {
+    max-width: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(7, 6, 26, 0.5) 0%,
+      rgba(7, 6, 26, 0.85) 50%
+    );
+  }
+  html.theme-light .hero--cosmic .hero__inner {
+    background: linear-gradient(
+      to bottom,
+      rgba(248, 246, 255, 0.5) 0%,
+      rgba(248, 246, 255, 0.92) 50%
+    );
+  }
+}
+
+/* Hide the background starfield in the cosmic hero (we have SVG stars) */
+.hero--cosmic ~ * #starfield,
+body:has(.hero--cosmic) #starfield {
+  opacity: 0.6;
+}
+
+/* ---------- ERC BADGE ---------- */
+
+.hero__badges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  animation: fade-up .8s ease 0.1s both;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hero__badge--erc {
+  background: linear-gradient(120deg,
+    rgba(255, 106, 166, 0.15),
+    rgba(183, 148, 255, 0.15)
+  );
+  border: 1px solid rgba(255, 106, 166, 0.4);
+  color: #ffd0e8;
+}
+
+html.theme-light .hero__badge--erc {
+  background: linear-gradient(120deg,
+    rgba(217, 51, 123, 0.1),
+    rgba(108, 64, 153, 0.1)
+  );
+  color: #9c2363;
+  border-color: rgba(217, 51, 123, 0.3);
+}
+
+.hero__badge--erc strong {
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+/* ---------- SUBHEAD (within sections) ---------- */
+
+.subhead {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 3rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.subhead:first-of-type { margin-top: 2rem; }
+
+/* ---------- IN-PREP PAPERS ---------- */
+
+.pubs--prep .pub {
+  opacity: 0.85;
+}
+
+.pub--prep {
+  background: linear-gradient(90deg, rgba(255, 106, 166, 0.03), transparent 50%);
+}
+
+.pub--prep .pub__year {
+  color: var(--accent-hot);
+}
+
+/* ---------- FUNDING CARDS ---------- */
+
+.funding {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.funding-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.8rem;
+  transition: all .3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.funding-card:hover {
+  border-color: var(--accent);
+  background: var(--card-hover);
+  transform: translateY(-3px);
+}
+
+.funding-card--feature {
+  grid-column: span 2;
+  background: linear-gradient(135deg,
+    rgba(183, 148, 255, 0.1) 0%,
+    rgba(255, 106, 166, 0.06) 100%
+  );
+  border-color: rgba(183, 148, 255, 0.35);
+}
+
+.funding-card--feature::before {
+  content: "ERC";
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: var(--accent);
+  opacity: 0.15;
+  line-height: 1;
+}
+
+@media (max-width: 720px) {
+  .funding-card--feature {
+    grid-column: span 1;
+  }
+}
+
+.funding-card__tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.funding-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.funding-card--feature h3 {
+  font-size: 1.8rem;
+}
+
+.funding-card p {
+  color: var(--ink-mute);
+  font-size: 0.92rem;
+}
+
+.funding-card em { color: var(--accent); font-style: italic; }
+
+/* ---------- FEATURED TALK (MIT) ---------- */
+
+.talks--invited {
+  background: linear-gradient(90deg,
+    rgba(183, 148, 255, 0.03),
+    transparent 70%
+  );
+}
+
+.talk--feature {
+  background: linear-gradient(135deg,
+    rgba(183, 148, 255, 0.08),
+    rgba(255, 106, 166, 0.04)
+  );
+  position: relative;
+}
+
+.talk--feature::after {
+  content: "★";
+  position: absolute;
+  top: 0.6rem;
+  right: 0.8rem;
+  color: var(--accent-hot);
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* ---------- SERVICE BLOCK ---------- */
+
+.service { margin-top: 2rem; }
+.mentees__title--mt { margin-top: 1.5rem; }
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob--1, .aurora-blob--2,
+  .moon-orbit, .planet-system,
+  .rings, .rings-front, .planet-body,
+  .sparkle--a, .sparkle--b, .sparkle--c, .big-sparkle,
+  .cosmic-scene .t-1, .cosmic-scene .t-2, .cosmic-scene .t-3 {
+    animation: none !important;
+  }
+}
+
+/* ---------- PROFILE PORTRAIT ---------- */
+
+.about__portrait {
+  float: right;
+  margin: 0 0 1.2rem 1.8rem;
+  padding: 0;
+  text-align: center;
+  position: relative;
+  shape-outside: circle(50%);
+}
+
+.about__portrait img {
+  display: block;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--card);
+  border: 2px solid transparent;
+  /* Subtle gradient ring around the photo */
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 0 0 4px rgba(7, 6, 26, 0.4),
+    0 0 0 5px rgba(183, 148, 255, 0.4),
+    0 8px 30px -8px rgba(183, 148, 255, 0.25);
+  transition: all .35s ease;
+}
+
+html.theme-light .about__portrait img {
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 0 0 4px rgba(248, 246, 255, 0.5),
+    0 0 0 5px rgba(108, 64, 153, 0.35),
+    0 8px 30px -8px rgba(108, 64, 153, 0.2);
+}
+
+.about__portrait:hover img {
+  box-shadow:
+    0 0 0 1px var(--accent),
+    0 0 0 4px rgba(7, 6, 26, 0.4),
+    0 0 0 5px var(--accent),
+    0 12px 40px -8px rgba(183, 148, 255, 0.45);
+  transform: translateY(-2px);
+}
+
+.about__portrait figcaption {
+  margin-top: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+/* On narrower screens, center the portrait above the bio */
+@media (max-width: 600px) {
+  .about__portrait {
+    float: none;
+    margin: 0 auto 1.5rem;
+    shape-outside: none;
+  }
+  .about__portrait img {
+    width: 140px;
+    height: 140px;
+  }
+}
