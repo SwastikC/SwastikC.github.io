@@ -1,168 +1,117 @@
-# SEO Action Plan for swastikc.github.io
+# Getting Your Site Into Google Search — Action Plan
 
-The site is now technically optimized. **What follows is the human work** —
-the part that actually moves search rankings. Estimated total time: 2–3 hours
-spread over a weekend.
+**Goal:** Make `swastikc.github.io` show up when someone Googles "Swastik Chowbay" within 1–2 weeks.
 
-The list is ordered by impact. Do them top to bottom.
+**Why it doesn't show up now:** Google has to discover, crawl, and index a new site before showing it. For a site with no backlinks, this can take months by default. We need to actively push it.
 
 ---
 
-## ⭐ Step 1 — Submit to Google Search Console (15 min)
+## ⚡ TODAY (30 minutes) — the essential steps
 
-Without this, Google may take weeks to discover you. With it: hours.
+### 1. Google Search Console (10 min) — biggest impact
 
-1. Go to https://search.google.com/search-console
-2. Click **Add property** → **URL prefix** → `https://swastikc.github.io/`
-3. Verify with the **HTML tag** method:
-   - Google gives you `<meta name="google-site-verification" content="abc123..." />`
-   - Add it inside `<head>` of `index.html` (just below the existing `<meta>` tags)
-   - Commit, wait 1 minute for GitHub Pages to redeploy, click Verify
-4. Once verified:
-   - Sidebar → **Sitemaps** → enter `sitemap.xml` → Submit
-   - Sidebar → **URL Inspection** → paste your URL → click "Request Indexing"
+1. Open https://search.google.com/search-console
+2. Click "Add property" → **URL prefix** → enter `https://swastikc.github.io/`
+3. Verify ownership: choose **HTML tag** method
+   - Google gives you a meta tag like:
+     `<meta name="google-site-verification" content="abc123XYZ..." />`
+   - Copy that whole tag
+   - Send it to Claude — I'll add it to your index.html
+   - OR add it yourself: in `index.html`, find `<!-- SEO: Verification tags -->` and paste below
+   - Commit, wait 2 min, click "Verify" in Search Console
+4. After verification, in Search Console:
+   - **URL Inspection** → paste `https://swastikc.github.io/` → click **Request Indexing**
+   - **Sitemaps** → enter `sitemap.xml` → Submit
+5. Within 1–3 days, your site shows up in Google.
 
-Repeat the same property-add for **Bing Webmaster Tools**:
-https://www.bing.com/webmasters (also feeds DuckDuckGo, Yahoo, ChatGPT search).
+### 2. Bing Webmaster Tools (5 min)
 
----
+1. Open https://www.bing.com/webmasters
+2. Add site `https://swastikc.github.io/`
+3. The easiest verification: import from Google Search Console (one click after step 1)
+4. Submit your sitemap
+5. Bing indexes within hours and powers DuckDuckGo, Yahoo, ChatGPT search.
 
-## ⭐ Step 2 — Add backlinks from your authority profiles (30 min)
+### 3. ORCID profile (5 min)
 
-These are the highest-authority sites that can vouch for you. Each link adds
-serious SEO weight.
+1. Login at https://orcid.org/0000-0003-1371-8890
+2. Edit your record → Websites & Social Links
+3. Add: `Personal website · https://swastikc.github.io/`
+4. ORCID is a high-trust domain Google crawls daily.
 
-### ORCID — https://orcid.org/0000-0003-1371-8890
-1. Sign in
-2. Edit your "Websites & Social Links" section
-3. Add: `https://swastikc.github.io/`
-4. Set visibility to **Everyone**
+### 4. UniMi profile (5 min) — HIGHEST-VALUE backlink
 
-### Google Scholar — https://scholar.google.com/citations?user=uVngnhsAAAAJ
-1. Sign in to your profile
-2. Click the pencil ✏️ next to your name to edit
-3. Add `https://swastikc.github.io/` as the **Homepage** field
-4. Save
+1. Login to your UniMi profile (https://www.unimi.it/it/ugov/person/swastik-chowbay)
+2. Find "personal website" / "homepage" field
+3. Add `https://swastikc.github.io/`
+4. A `.it` university domain pointing to your site is worth a LOT in Google's eyes.
 
-### NASA ADS
-1. Log in at https://ui.adsabs.harvard.edu
-2. Go to your author profile
-3. There's usually a homepage / website field — add the URL there
+### 5. GitHub bio (1 min)
 
-### GitHub
-1. Go to https://github.com/SwastikC
-2. Click **Edit profile**
-3. In the "Website" field, add `https://swastikc.github.io/`
-4. Save
-
-### Università degli Studi di Milano page
-You said you don't have edit rights. Email your department admin or whoever
-manages unimi.it pages and ask them to add `https://swastikc.github.io/` as
-your personal/research homepage. This is the highest-authority backlink
-you can get for academic SEO — well worth the email.
+1. https://github.com/SwastikC → Edit profile
+2. Set "Website" to `https://swastikc.github.io/`
 
 ---
 
-## ⭐ Step 3 — Tell ResearchGate, LinkedIn, Twitter (15 min)
+## 📅 THIS WEEK
 
-If you have any of these, add the URL.
+### 6. Google Scholar (2 min)
 
-- **ResearchGate**: profile → about → contact → website
-- **LinkedIn**: profile → contact info → website
-- **X / Twitter / Bluesky**: bio link
-- **Mastodon (Astrodon.social is popular for astronomers)**: bio link
+1. Login: https://scholar.google.com/citations?user=uVngnhsAAAAJ
+2. Edit profile → add homepage URL
 
-These are lower authority than ORCID/Scholar but still help.
+### 7. Tell people the site exists (drives early traffic + fresh backlinks)
 
----
+Do at least ONE:
+- **LinkedIn post** announcing the site
+- **Bluesky / Twitter** post tagging #astronomy #exoplanets
+- **Email signature** — add `swastikc.github.io` below your name
+- **Department mailing list** if you have one
 
-## ⭐ Step 4 — Make sure your name is "owned" (one-time, 20 min)
+### 8. NASA ADS author profile
 
-Search `Swastik Chowbay` on Google right now and see what comes up. The goal
-is that within 1–3 months, the top results are: (1) your personal site,
-(2) your Scholar profile, (3) your ORCID, (4) your unimi.it page.
-
-If anything embarrassing or wrong appears, that's fixable too. Ping me.
-
-To accelerate "name ownership":
-- Make sure all of your published papers list you as **C. Swastik** consistently
-  (your CV uses this — good)
-- Add ORCID iD to the author block of any future paper you submit (most
-  journals support this and it links the paper to you in Google's eyes)
+NASA ADS auto-generates author pages from papers. You can claim and customize yours:
+https://ui.adsabs.harvard.edu/user/orcid — link your ORCID and homepage.
 
 ---
 
-## ⭐ Step 5 — Update your News section every 1–2 months (ongoing)
+## 📊 What to expect
 
-Search engines like fresh content. The News section I added to your site is
-how you signal "this site is alive." Even one update per quarter helps.
-
-To add a news item, edit `index.html`, find the `<ol class="news">` block,
-and copy this template at the top:
-
-```html
-<li class="news-item">
-  <time class="news-item__date" datetime="2026-09">Sep 2026</time>
-  <div class="news-item__body">
-    <h3>Your headline here</h3>
-    <p>One or two sentences of detail.</p>
-  </div>
-</li>
-```
-
-Things worth posting:
-- Paper accepted / published
-- Telescope time awarded
-- Conference talk delivered
-- New collaborator / student
-- Outreach event you ran
+| Day 1–2 | Site appears for `site:swastikc.github.io` |
+| Day 3–7 | Appears for `Swastik Chowbay github.io` |
+| Week 2–3 | Appears for `Swastik Chowbay` (competing with IIA / Scholar) |
+| Month 2 | May rank top-3 for `Swastik Chowbay astrophysicist` |
+| Month 3+ | Long-tail keywords (paper themes) start showing |
 
 ---
 
-## ⭐ Step 6 — Reasonable, real-world citations (slow burn)
+## 🔬 Already done in the site
 
-Every place a paper of yours is cited in a reputable place, your "academic
-graph" gets stronger. You don't control this, but you can:
+These are baked in:
 
-- Tweet/post about your papers when they come out (with the URL to your site)
-- Submit to research blogs that cover exoplanets (e.g. astrobites)
-- If your paper gets press coverage (you have at least one Ministry of I&B
-  press release per the CV), make sure the journalist has your site URL
+- ✅ `sitemap.xml` and `robots.txt` correctly configured
+- ✅ Open Graph + Twitter Card metadata
+- ✅ Schema.org Person JSON-LD (ORCID, ERC grant, UniMi affiliation)
+- ✅ Schema.org ScholarlyArticle JSON-LD for 5 papers
+- ✅ Canonical URL set
+- ✅ Distinctive keywords (Stefano Facchini, JWST, ERC UNVEIL)
 
----
-
-## 🛠️ What was already done for you (technical SEO)
-
-These don't need any action — they're baked into the code:
-
-- ✅ Page title, description, keywords meta tags
-- ✅ Open Graph + Twitter card tags (rich previews on social media)
-- ✅ Canonical URL
-- ✅ Schema.org structured data:
-  - `Person` with ORCID, Scholar, UniMi, GitHub linked via `sameAs`
-  - `ScholarlyArticle` for each first-author paper
-- ✅ `sitemap.xml` and `robots.txt`
-- ✅ Old multi-page URLs (`about.html`, `research.html`, etc.) now redirect
-  to the new single-page anchors so any existing backlinks consolidate
-- ✅ Semantic HTML5 landmarks (`<main>`, `<section>` with `aria-labelledby`)
-- ✅ Mobile-friendly responsive layout
-- ✅ Fast load (no frameworks, no build step, fonts preconnected)
-- ✅ Accessible navigation, alt text on the hero image, reduced-motion respect
+The technical SEO is solid. The reason you're not in search yet is purely **distribution** — submission + backlinks.
 
 ---
 
-## 🔍 How to check it's working
+## ⚠️ Mistakes to avoid
 
-**This week:**
-- Search Console will show "Page indexed" for your URL within 1–7 days
-- Search `site:swastikc.github.io` on Google — should show your site
+- ❌ Don't use SEO "boost" services — they're scams
+- ❌ Don't keyword-stuff
+- ❌ Don't pay for backlinks
+- ❌ Don't expect day-1 ranking — your IIA profile and arXiv author page have years of crawl history; your new site needs weeks to catch up
 
-**In 2–4 weeks:**
-- Search `Swastik Chowbay` (no quotes) — your site should appear in the top 5
-- Search `Swastik Chowbay astrophysicist` — should be #1 or #2
+---
 
-**In 2–3 months:**
-- Topical searches like `exoplanet host star ages` — your papers from your
-  site should start appearing for very-long-tail queries
+## 🆘 If 2 weeks pass and you're still not indexed
 
-If you hit a snag with any step, just ask.
+In Search Console → **Coverage**. Common issues:
+1. No backlinks at all (do steps 3–5)
+2. Site too new — re-click "Request Indexing"
+3. `robots.txt` blocking (check `https://swastikc.github.io/robots.txt` shows `Allow: /`)
