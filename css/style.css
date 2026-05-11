@@ -2224,3 +2224,224 @@ html.theme-light .about__portrait img {
     height: 140px;
   }
 }
+
+/* ============================================================
+   PHASE 4: Floating "Book a meeting" button + Cal.com modal
+   ============================================================ */
+
+/* ---------- Floating action button ---------- */
+
+.book-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.3rem;
+  background: linear-gradient(120deg, var(--accent) 0%, var(--accent-hot) 100%);
+  color: var(--bg-deep);
+  border: 0;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow:
+    0 4px 16px -4px rgba(183, 148, 255, 0.45),
+    0 12px 32px -8px rgba(255, 106, 166, 0.35),
+    0 0 0 0 rgba(183, 148, 255, 0.5);
+  transition: all .3s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Soft pulse to invite attention */
+  animation: book-fab-pulse 4s ease-in-out infinite;
+}
+
+.book-fab:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 8px 24px -4px rgba(183, 148, 255, 0.55),
+    0 16px 40px -8px rgba(255, 106, 166, 0.45),
+    0 0 0 6px rgba(183, 148, 255, 0.12);
+}
+
+.book-fab:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.book-fab__text {
+  white-space: nowrap;
+}
+
+@keyframes book-fab-pulse {
+  0%, 100% { box-shadow:
+    0 4px 16px -4px rgba(183, 148, 255, 0.45),
+    0 12px 32px -8px rgba(255, 106, 166, 0.35),
+    0 0 0 0 rgba(183, 148, 255, 0.5);
+  }
+  50% { box-shadow:
+    0 4px 16px -4px rgba(183, 148, 255, 0.45),
+    0 12px 32px -8px rgba(255, 106, 166, 0.35),
+    0 0 0 8px rgba(183, 148, 255, 0);
+  }
+}
+
+/* On phones, shrink to icon-only to save space */
+@media (max-width: 540px) {
+  .book-fab {
+    padding: 0.85rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+  .book-fab__text {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-fab { animation: none; }
+}
+
+/* ---------- Modal ---------- */
+
+.book-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.book-modal.is-open {
+  display: flex;
+  animation: modal-fade-in .25s ease;
+}
+
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.book-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 6, 26, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+html.theme-light .book-modal__backdrop {
+  background: rgba(26, 17, 72, 0.55);
+}
+
+.book-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  background: var(--bg-mid);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modal-panel-in .35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modal-panel-in {
+  from { transform: translateY(20px) scale(0.97); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.book-modal__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem 1.8rem 1.2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.book-modal__head h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin: 0 0 0.35rem;
+  color: var(--ink);
+}
+
+.book-modal__head p {
+  font-size: 0.88rem;
+  color: var(--ink-mute);
+  margin: 0;
+}
+
+.book-modal__close {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink-mute);
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.book-modal__close:hover {
+  color: var(--ink);
+  border-color: var(--accent);
+  background: rgba(183, 148, 255, 0.06);
+}
+
+.book-modal__embed {
+  flex: 1;
+  min-height: 500px;
+  overflow-y: auto;
+  background: var(--bg-deep);
+}
+
+html.theme-light .book-modal__embed {
+  background: #fff;
+}
+
+.book-modal__embed iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  border: 0;
+  display: block;
+}
+
+.book-modal__fallback {
+  padding: 3rem 1.8rem;
+  text-align: center;
+  color: var(--ink-mute);
+}
+
+.book-modal__fallback p {
+  margin-bottom: 0.6rem;
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .book-modal { padding: 0; }
+  .book-modal__panel {
+    max-width: 100%;
+    max-height: 100vh;
+    height: 100vh;
+    border-radius: 0;
+  }
+}

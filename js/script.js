@@ -605,7 +605,7 @@
         const message = formData.get('message');
         const subject = encodeURIComponent(`Website contact from ${name}`);
         const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-        window.location.href = `mailto:swastik.chowbay@iiap.res.in?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:swastik.chowbay@unimi.it?subject=${subject}&body=${body}`;
         return;
       }
 
@@ -632,6 +632,71 @@
         submitBtn.innerHTML = 'Send message <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg>';
       }
     });
+  }
+
+  /* ---------- 10. BOOKING MODAL (Cal.com) ---------- */
+
+  const bookFab = document.getElementById('book-fab');
+  const bookModal = document.getElementById('book-modal');
+  const calEmbed = document.getElementById('cal-embed');
+
+  if (bookFab && bookModal && calEmbed) {
+    const calLink = calEmbed.dataset.calLink;
+    let embedLoaded = false;
+
+    function openModal() {
+      bookModal.classList.add('is-open');
+      bookModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+
+      // Lazy-load the Cal.com embed only when first opened
+      if (!embedLoaded && calLink && !calLink.includes('YOUR_CALCOM')) {
+        // Cal.com inline embed — no JS library needed.
+        // Theme parameter matches the site's current theme.
+        const isLight = document.documentElement.classList.contains('theme-light');
+        const theme = isLight ? 'light' : 'dark';
+        calEmbed.innerHTML = `<iframe
+          src="https://cal.com/${calLink}?embed=true&theme=${theme}"
+          loading="lazy"
+          title="Book a meeting with Dr. Swastik via Cal.com"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="payment; clipboard-write"
+        ></iframe>`;
+        embedLoaded = true;
+      }
+    }
+
+    function closeModal() {
+      bookModal.classList.remove('is-open');
+      bookModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    }
+
+    bookFab.addEventListener('click', openModal);
+
+    // Any element with data-close-modal closes (backdrop + close button)
+    bookModal.querySelectorAll('[data-close-modal]').forEach(el => {
+      el.addEventListener('click', closeModal);
+    });
+
+    // ESC key to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && bookModal.classList.contains('is-open')) {
+        closeModal();
+      }
+    });
+
+    // Re-load embed if theme changes while modal is open (rare but nice)
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        if (embedLoaded && bookModal.classList.contains('is-open')) {
+          embedLoaded = false;
+          // Reset to fallback then re-load with new theme
+          calEmbed.innerHTML = `<div class="book-modal__fallback"><p>Reloading…</p></div>`;
+          setTimeout(openModal, 100);
+        }
+      });
+    }
   }
 
 })();
