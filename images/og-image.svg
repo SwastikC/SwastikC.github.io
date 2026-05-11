@@ -102,8 +102,9 @@
   <text x="100" y="455" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#9a93c4" letter-spacing="2">A S T R O P H Y S I C I S T</text>
 
   <!-- Tagline -->
-  <text x="100" y="510" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-style="italic" fill="#b794ff">Every atom in you was once inside a star.</text>
-  <text x="100" y="540" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-style="italic" fill="#b794ff">I study the stars that make new worlds.</text>
+  <text x="100" y="500" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-style="italic" fill="#b794ff">Every atom in you was once inside a star.</text>
+  <text x="100" y="528" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-style="italic" fill="#b794ff">I study the stars that make new worlds —</text>
+  <text x="100" y="556" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-style="italic" fill="#b794ff">and hunt for them with giant telescopes.</text>
 
   <!-- URL -->
   <text x="100" y="595" font-family="monospace" font-size="16" fill="#6b6493" letter-spacing="2">swastikc.github.io</text>
