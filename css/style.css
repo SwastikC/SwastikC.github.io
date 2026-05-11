@@ -1802,13 +1802,13 @@ html.theme-light #viz-tooltip {
 
 /* The actual text content sits on the left half on desktop */
 .hero--cosmic .hero__inner > * {
-  max-width: 580px;
+  max-width: 680px;
 }
 
 /* On very wide screens, push text away from the planet area */
 @media (min-width: 1100px) {
   .hero--cosmic .hero__inner {
-    padding-right: 45%; /* reserve right side for the planet */
+    padding-right: 38%; /* reserve right side for the planet */
   }
 }
 
