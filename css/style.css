@@ -369,7 +369,7 @@ html.theme-light .theme-toggle .icon-moon { display: none; }
 .hero__meta {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 0.75fr) minmax(0, 3.6fr);
   margin-top: clamp(3rem, 6vw, 4.5rem);
   border-top: 2px solid var(--ink);
   border-bottom: 1px solid var(--line);
@@ -395,14 +395,40 @@ html.theme-light .theme-toggle .icon-moon { display: none; }
   color: var(--ink-mute);
 }
 
+/* Telescope programs: names set like the numbers, role underneath */
+.hero__tel {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem clamp(0.9rem, 1.6vw, 1.5rem);
+}
+.hero__tel li { display: flex; flex-direction: column; }
+.hero__tel-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  line-height: 1.1;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.hero__tel-role {
+  margin-top: 0.2rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.hero__meta-tel .hero__meta-lbl { margin-top: 0.9rem; }
+
 @media (max-width: 860px) {
   .hero__inner { grid-template-columns: 1fr; }
   .hero__portrait { order: -1; max-width: 200px; margin-bottom: 2rem; }
   .hero__portrait figcaption span:first-child { display: none; }
   .hero__portrait-frame { aspect-ratio: 1; }
   .hero__meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .hero__meta > div:nth-child(3) { padding-left: 0; border-left: 0; }
-  .hero__meta > div:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .hero__meta > .hero__meta-tel { grid-column: 1 / -1; padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
 }
 
 /* =============================================================
