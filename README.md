@@ -1,20 +1,14 @@
-# swastikc.github.io — v4 (animated cosmic edition)
+# swastikc.github.io — editorial edition (Oct 2026)
 
 Live at **https://swastikc.github.io**
 
-## What's new in this version
+## What's on the site
 
-- 📰 **Editorial redesign** (Oct 2026) — warm paper background, Playfair Display + Manrope type, photo-led hero, label/content column layout; dark mode via the toggle
-- 🏆 **ERC UNVEIL badge** in the hero
-- 📊 **Updated CV** (Oct 2026) — 14 publications, 8 first-author, 7 submitted or in preparation
-- 🔭 **New Observations section** with VLT/SPHERE, JWST, HCT programs
-- 🎙️ **Talks split** into "Invited seminars/visits" (MIT/Sara Seager featured) and "Conference talks"
-- 💰 **Funding section** highlighting the ERC grant + other awards
-- 📧 **Email updated** to swastik.chowbay@unimi.it (primary)
-- 🎓 **Thesis title** in About timeline
-- ❓ **New intro**: "Every star tells a story. I read them in their chemistry."
-- 📋 **BibTeX copy buttons** on highlight cards
-- 🌓 **Light/dark theme toggle** with localStorage memory
+- 📰 **Editorial design**: warm paper background, Playfair Display + Manrope, photo-led hero, label/content column layout; dark mode via the toggle
+- 📊 **CV-matched content** (Oct 2026): 14 refereed papers (8 first-author), 7 submitted or in prep; telescope programs (VLT/SPHERE, ALMA, JWST, HCT, VLT/ERIS) in the hero
+- 🔬 **Research Highlights** with the published figures from six papers (WISPIT 2 Hα spectrum, LkCa 15 SPHERE images, …), each with ADS/arXiv links and BibTeX
+- 🔭 Observations, talks & visits, funding, news, mentorship, live GitHub repos, contact form and Cal.com booking
+- 🔎 **SEO**: ProfilePage + Person + ScholarlyArticle structured data, image sitemap, favicons, `llms.txt`, Lighthouse 99/100/100/100
 
 ## ⚠️ One setup step still pending
 
@@ -28,20 +22,26 @@ The contact form falls back to mailto by default. To use Formspree (5 min, free)
 ## File map
 
 ```
-index.html       · single-page site
-cv.pdf           · downloadable CV (latest version)
-sitemap.xml      · search engine sitemap
-robots.txt       · crawler config
-about.html, research.html, projects.html, contact.html
-                 · redirect pages preserving old URLs
+index.html            · single-page site
+cv.pdf                · downloadable CV (latest version); CV_Swastik.pdf is a copy for old links
+sitemap.xml           · sitemap, including the research figures for Google Images
+robots.txt            · crawler config
+llms.txt              · plain-text summary for AI search assistants
+404.html              · "Lost in space" not-found page
+favicon.ico/.svg, apple-touch-icon.png, site.webmanifest · icons
+about.html, research.html, projects.html, contact.html, website/
+                      · redirects preserving old URLs
 
-css/style.css    · all styles
-js/script.js     · viz, theme, progress, repo fetch, contact form
+css/style.css         · all styles
+js/script.js          · theme, progress bar, nav, reveals, BibTeX, GitHub repos, contact form, booking
 images/
-  og-image.png   · designed share image (1200×630)
-  og-image.svg   · source SVG for the share image
-  hero.png       · legacy hero (now unused — kept just in case)
+  swastik.jpg         · portrait
+  research/*.webp     · figures used in Research Highlights
+  og-image.png        · share image (1200×630); og-image.svg is its source
+  favicon-*.png       · icon sizes for the web manifest
 ```
+
+**After editing `css/style.css` or `js/script.js`, bump the `?v=` value** on their links in `index.html` so returning visitors get the new files.
 
 ## How to update common things
 
@@ -63,9 +63,8 @@ In `index.html`, find `<h3 class="subhead">First-author</h3>` (or "Co-author" / 
 ### Add a talk or invited visit
 In `index.html`, find the appropriate `<ol class="talks">` and copy an existing `<li class="talk">` block.
 
-### Change the cosmic scene
-The hero SVG is inline in `index.html`. Look for `<svg class="cosmic-scene"`.
-CSS animations are at the bottom of `style.css` under "PHASE 3: animated cosmic scene".
+### Add a research highlight
+Copy an `<article class="highlight">` block in the `#highlights` section, put the figure in `images/research/` (WebP), and add it to `sitemap.xml`.
 
 ## Local preview
 
