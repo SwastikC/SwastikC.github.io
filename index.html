@@ -22,7 +22,7 @@
   <meta property="og:image" content="https://swastikc.github.io/images/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Dr. Swastik C. · Astrophysicist · Every star tells a story." />
+  <meta property="og:image:alt" content="Swastik Chowbay · Astrophysicist · Exoplanets and planet-forming disks" />
   <meta property="profile:first_name" content="Swastik" />
   <meta property="profile:last_name" content="Chowbay" />
 
@@ -31,7 +31,8 @@
   <meta name="twitter:description" content="ERC-funded postdoctoral astrophysicist studying exoplanet host stars and protoplanetary disks." />
   <meta name="twitter:image" content="https://swastikc.github.io/images/og-image.png" />
 
-  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;✦&lt;/text&gt;&lt;/svg&gt;" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2302030a'/%3E%3Cellipse cx='16' cy='16' rx='12' ry='5' fill='none' stroke='%235fe1ff' stroke-width='1.6' transform='rotate(-25 16 16)'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%235b8cff'/%3E%3Ccircle cx='26.5' cy='11' r='2' fill='%23ffd27a'/%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#02030a" />
 
   <!-- JSON-LD: Person -->
   <script type="application/ld+json">
@@ -94,7 +95,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+Devanagari:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -107,11 +108,19 @@
 
   <!-- Background star field canvas (subtle ambient) -->
   <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="cosmos" aria-hidden="true"><span></span><span></span><span></span></div>
 
   <!-- Navigation -->
   <header class="nav" id="nav">
     <a href="#hero" class="nav__logo" aria-label="Dr. Swastik Chowbay — home">
-      <span class="nav__logo-mark" aria-hidden="true">✦</span>
+      <span class="nav__logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 28 28" fill="none">
+          <ellipse cx="14" cy="14" rx="12.5" ry="5.2" stroke="currentColor" stroke-width="1.4" transform="rotate(-25 14 14)" opacity="0.8"/>
+          <circle cx="14" cy="14" r="5" fill="url(#logo-grad)"/>
+          <g class="orbit-dot"><circle cx="25.3" cy="9" r="1.8" fill="#ffd27a"/></g>
+          <defs><radialGradient id="logo-grad" cx="35%" cy="30%" r="80%"><stop offset="0%" stop-color="#e0f8ff"/><stop offset="55%" stop-color="#5b8cff"/><stop offset="100%" stop-color="#2a2f8f"/></radialGradient></defs>
+        </svg>
+      </span>
       <span class="nav__logo-text">Dr. Swastik C.</span>
     </a>
     <nav class="nav__links" aria-label="Primary">
@@ -143,146 +152,38 @@
     <!-- ====================================================== -->
     <!-- HERO — animated cosmic scene + overlaid intro          -->
     <!-- ====================================================== -->
-    <section class="hero hero--cosmic" id="hero" aria-labelledby="hero-title">
-      <!-- The animated SVG scene (matches the OG image, but alive) -->
-      <svg class="cosmic-scene" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <radialGradient id="planet-grad" cx="35%" cy="35%" r="65%">
-            <stop offset="0%" stop-color="#ffd0e8"/>
-            <stop offset="40%" stop-color="#b794ff"/>
-            <stop offset="100%" stop-color="#3a1f6b"/>
-          </radialGradient>
-          <radialGradient id="planet-glow" cx="50%" cy="50%" r="60%">
-            <stop offset="0%" stop-color="#b794ff" stop-opacity="0.4"/>
-            <stop offset="100%" stop-color="#b794ff" stop-opacity="0"/>
-          </radialGradient>
-          <radialGradient id="moon-grad" cx="40%" cy="40%" r="60%">
-            <stop offset="0%" stop-color="#e8e6ff"/>
-            <stop offset="100%" stop-color="#6be1ff"/>
-          </radialGradient>
-          <radialGradient id="aurora-1" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#b794ff" stop-opacity="0.22"/>
-            <stop offset="100%" stop-color="#b794ff" stop-opacity="0"/>
-          </radialGradient>
-          <radialGradient id="aurora-2" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#ff6aa6" stop-opacity="0.15"/>
-            <stop offset="100%" stop-color="#ff6aa6" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero__sky" aria-hidden="true">
+        <span class="nebula nebula--1"></span>
+        <span class="nebula nebula--2"></span>
+        <span class="nebula nebula--3"></span>
+      </div>
+      <div class="hero__horizon" aria-hidden="true">
+        <span class="hero__planet"></span>
+        <span class="hero__flare"></span>
+      </div>
 
-        <!-- Aurora drift blobs -->
-        <ellipse class="aurora-blob aurora-blob--1" cx="200" cy="200" rx="400" ry="280" fill="url(#aurora-1)"/>
-        <ellipse class="aurora-blob aurora-blob--2" cx="1000" cy="600" rx="380" ry="260" fill="url(#aurora-2)"/>
-
-        <!-- Background stars (twinkle) -->
-        <g class="stars-bg" fill="#e8e6ff">
-          <circle class="t-1" cx="80"   cy="60"  r="0.9" opacity="0.7"/>
-          <circle class="t-2" cx="180"  cy="120" r="0.7" opacity="0.5"/>
-          <circle class="t-3" cx="320"  cy="80"  r="1.0" opacity="0.85"/>
-          <circle class="t-1" cx="450"  cy="40"  r="0.8" opacity="0.6"/>
-          <circle class="t-2" cx="580"  cy="100" r="0.9" opacity="0.75"/>
-          <circle class="t-3" cx="720"  cy="70"  r="0.7" opacity="0.5"/>
-          <circle class="t-1" cx="860"  cy="130" r="1.0" opacity="0.8"/>
-          <circle class="t-2" cx="1100" cy="80"  r="0.9" opacity="0.7"/>
-          <circle class="t-3" cx="1150" cy="200" r="1.1" opacity="0.85"/>
-          <circle class="t-1" cx="60"   cy="280" r="0.8" opacity="0.6"/>
-          <circle class="t-2" cx="140"  cy="380" r="1.0" opacity="0.8"/>
-          <circle class="t-3" cx="40"   cy="500" r="0.9" opacity="0.7"/>
-          <circle class="t-1" cx="220"  cy="550" r="1.0" opacity="0.75"/>
-          <circle class="t-2" cx="380"  cy="580" r="0.7" opacity="0.5"/>
-          <circle class="t-3" cx="540"  cy="600" r="0.9" opacity="0.7"/>
-          <circle class="t-1" cx="850"  cy="580" r="1.1" opacity="0.8"/>
-          <circle class="t-2" cx="1080" cy="540" r="0.8" opacity="0.6"/>
-          <circle class="t-3" cx="1140" cy="450" r="1.2" opacity="0.9"/>
-          <circle class="t-1" cx="700"  cy="250" r="0.7" opacity="0.4"/>
-          <circle class="t-2" cx="280"  cy="220" r="0.6" opacity="0.4"/>
-          <circle class="t-3" cx="630"  cy="450" r="1.0" opacity="0.75"/>
-          <circle class="t-1" cx="470"  cy="700" r="0.8" opacity="0.6"/>
-          <circle class="t-2" cx="950"  cy="730" r="0.9" opacity="0.7"/>
-          <circle class="t-3" cx="200"  cy="720" r="0.7" opacity="0.5"/>
-          <circle class="t-1" cx="100"  cy="160" r="0.9" opacity="0.7"/>
-        </g>
-
-        <!-- Pink + cyan accent stars -->
-        <g fill="#ff6aa6">
-          <circle class="t-1" cx="950" cy="180" r="1.4" opacity="0.8"/>
-          <circle class="t-2" cx="120" cy="450" r="1.2" opacity="0.7"/>
-          <circle class="t-3" cx="350" cy="320" r="1.0" opacity="0.65"/>
-        </g>
-        <g fill="#6be1ff">
-          <circle class="t-2" cx="780" cy="380" r="1.3" opacity="0.8"/>
-          <circle class="t-1" cx="290" cy="640" r="1.1" opacity="0.7"/>
-          <circle class="t-3" cx="620" cy="280" r="0.9" opacity="0.65"/>
-        </g>
-
-        <!-- One subtle sparkle (was three — felt too busy) -->
-        <g fill="#ffffff" opacity="0.7">
-          <path class="sparkle sparkle--a" d="M 1090 320 L 1093 330 L 1103 333 L 1093 336 L 1090 346 L 1087 336 L 1077 333 L 1087 330 Z" transform-origin="1090 333"/>
-        </g>
-
-        <!-- Distant moon (smaller, dimmer) -->
-        <g class="moon-orbit" opacity="0.7">
-          <circle cx="830" cy="200" r="20" fill="url(#moon-grad)" opacity="0.85"/>
-        </g>
-
-        <!-- Main planet system: gentle drift + ring rotation -->
-        <g class="planet-system" opacity="0.55">
-          <g transform="translate(1080, 640)">
-            <!-- Glow halo (smaller) -->
-            <circle r="110" fill="url(#planet-glow)"/>
-            <!-- Rings (rotate slowly) -->
-            <g class="rings">
-              <ellipse cx="0" cy="0" rx="130" ry="28" stroke="#b794ff" stroke-width="1" fill="none" opacity="0.22"/>
-              <ellipse cx="0" cy="0" rx="115" ry="24" stroke="#ff6aa6" stroke-width="1" fill="none" opacity="0.38"/>
-              <path d="M -115 0 A 115 24 0 0 0 115 0" stroke="#b794ff" stroke-width="0.8" fill="none" opacity="0.12"/>
-            </g>
-            <g class="planet-body">
-              <circle r="80" fill="url(#planet-grad)"/>
-              <ellipse cx="-14" cy="-22" rx="32" ry="9" fill="#ffd0e8" opacity="0.16"/>
-              <ellipse cx="17" cy="12" rx="24" ry="8" fill="#3a1f6b" opacity="0.28"/>
-            </g>
-            <g class="rings-front">
-              <path d="M -115 0 A 115 24 0 0 1 115 0" stroke="#ff6aa6" stroke-width="1" fill="none" opacity="0.38"/>
-              <path d="M -130 0 A 130 28 0 0 1 130 0" stroke="#b794ff" stroke-width="1" fill="none" opacity="0.22"/>
-            </g>
-          </g>
-        </g>
-
-        <!-- Big decorative sparkle, top-left (subtler) -->
-        <g class="big-sparkle" transform="translate(120, 165)" fill="#b794ff" opacity="0.55">
-          <path d="M 0 -20 L 5 -5 L 20 0 L 5 5 L 0 20 L -5 5 L -20 0 L -5 -5 Z"/>
-        </g>
-      </svg>
-
-      <!-- Hero overlay content -->
       <div class="hero__inner">
         <div class="hero__badges">
-          <p class="hero__eyebrow">
-            <span class="pulse" aria-hidden="true"></span>
-            Postdoctoral Fellow · Università degli Studi di Milano
-          </p>
-          <p class="hero__badge hero__badge--erc">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
-            Funded by <strong>ERC UNVEIL</strong>
-          </p>
+          <p class="hero__eyebrow"><span class="pulse" aria-hidden="true"></span>Postdoctoral Fellow · Università degli Studi di Milano</p>
+          <p class="hero__badge hero__badge--erc"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg> Funded by <strong>ERC UNVEIL</strong></p>
         </div>
 
-        <p class="hero__sanskrit" lang="sa" aria-label="Tat tvam asi — Sanskrit">
-          तत्त्वमसि
-        </p>
-        <h1 class="hero__title" id="hero-title" style="font-size: clamp(1.4rem, 2.4vw, 2.6rem); line-height: 1.3; font-weight: 400; max-width: none;">
-          Every atom in you was once inside a <span class="hero__title-accent">star.</span>
+        <p class="hero__kicker">Astrophysicist · Exoplanets · Planet&#8209;forming&nbsp;disks</p>
+
+        <h1 class="hero__title" id="hero-title"><span class="hero__title-line">Swastik</span> <span class="hero__title-line">Chowbay</span></h1>
+
+        <p class="hero__tagline">
+          Every atom in you was once inside a <strong>star</strong>.
           I study the stars that make new worlds — and hunt for them with the world's largest telescopes.
-        </h1>
+        </p>
+
         <p class="hero__attribution">
-          <em>Tat tvam asi</em> — "You are that." <span class="hero__attribution-source">Chandogya Upanishad</span>
+          <span class="hero__sanskrit" lang="sa">तत्त्वमसि</span>
+          <span><em>Tat tvam asi</em> — "You are that."</span>
+          <span class="hero__attribution-source">Chandogya Upanishad</span>
         </p>
-        <p class="hero__lede">
-          I'm <strong>Dr. Swastik Chowbay</strong> — an astrophysicist studying
-          how the composition and age of host stars shape the planets that orbit
-          them, and imaging the dust-and-gas disks where those planets are still
-          being born.
-        </p>
+
         <div class="hero__cta">
           <a href="#research" class="btn btn--primary">Explore Research</a>
           <a href="cv.pdf" class="btn btn--ghost" download>
@@ -301,15 +202,16 @@
 
         <div class="hero__meta">
           <div><span class="hero__meta-num">14</span><span class="hero__meta-lbl">Publications</span></div>
-          <div><span class="hero__meta-num">8</span><span class="hero__meta-lbl">As first author</span></div>
+          <div><span class="hero__meta-num">8</span><span class="hero__meta-lbl">First author</span></div>
           <div><span class="hero__meta-num">ALMA</span><span class="hero__meta-lbl">Cycle 13 PI</span></div>
+          <div><span class="hero__meta-num">JWST</span><span class="hero__meta-lbl">Cycle 5 Co-I</span></div>
         </div>
       </div>
 
-      <div class="hero__scroll" aria-hidden="true">
-        <span>scroll</span>
-        <div class="hero__scroll-line"></div>
-      </div>
+      <a href="#about" class="hero__scroll" aria-label="Scroll to About">
+        <span>Explore</span>
+        <span class="hero__scroll-line" aria-hidden="true"></span>
+      </a>
     </section>
 
     <!-- ====================================================== -->
@@ -423,25 +325,25 @@
             <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <radialGradient id="hl4center" cx="50%" cy="50%" r="10%"><stop offset="0%" stop-color="#fff" stop-opacity="1"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
-                <radialGradient id="hl4ring" cx="50%" cy="50%" r="50%"><stop offset="40%" stop-color="#07061a" stop-opacity="0"/><stop offset="55%" stop-color="#ff6aa6" stop-opacity="0.5"/><stop offset="65%" stop-color="#b794ff" stop-opacity="0.4"/><stop offset="80%" stop-color="#6be1ff" stop-opacity="0.2"/><stop offset="100%" stop-color="#07061a" stop-opacity="0"/></radialGradient>
+                <radialGradient id="hl4ring" cx="50%" cy="50%" r="50%"><stop offset="40%" stop-color="#04060f" stop-opacity="0"/><stop offset="55%" stop-color="#a86cff" stop-opacity="0.5"/><stop offset="65%" stop-color="#5b8cff" stop-opacity="0.4"/><stop offset="80%" stop-color="#5fe1ff" stop-opacity="0.2"/><stop offset="100%" stop-color="#04060f" stop-opacity="0"/></radialGradient>
               </defs>
-              <rect width="400" height="250" fill="#07061a"/>
-              <g fill="#e8e6ff">
+              <rect width="400" height="250" fill="#04060f"/>
+              <g fill="#eef3ff">
                 <circle cx="60" cy="40" r="0.8"/><circle cx="350" cy="60" r="1.2"/><circle cx="80" cy="200" r="0.7"/>
                 <circle cx="320" cy="220" r="1"/><circle cx="20" cy="120" r="0.6"/><circle cx="380" cy="150" r="0.9"/>
                 <circle cx="200" cy="20" r="0.7"/><circle cx="180" cy="230" r="0.8"/>
               </g>
               <ellipse cx="200" cy="125" rx="130" ry="55" fill="url(#hl4ring)"/>
-              <ellipse cx="200" cy="125" rx="95" ry="38" fill="#07061a"/>
-              <ellipse cx="200" cy="125" rx="95" ry="38" stroke="rgba(183,148,255,0.2)" stroke-width="0.5" fill="none"/>
+              <ellipse cx="200" cy="125" rx="95" ry="38" fill="#04060f"/>
+              <ellipse cx="200" cy="125" rx="95" ry="38" stroke="rgba(91,140,255,0.2)" stroke-width="0.5" fill="none"/>
               <circle cx="200" cy="125" r="6" fill="#fff"/>
               <circle cx="200" cy="125" r="14" fill="url(#hl4center)" opacity="0.6"/>
               <g stroke="rgba(255,255,255,0.15)" stroke-width="0.5">
                 <line x1="200" y1="100" x2="200" y2="150"/>
                 <line x1="175" y1="125" x2="225" y2="125"/>
               </g>
-              <line x1="320" y1="220" x2="370" y2="220" stroke="#9a93c4" stroke-width="1.5"/>
-              <text x="345" y="215" font-family="monospace" font-size="9" fill="#9a93c4" text-anchor="middle">50 AU</text>
+              <line x1="320" y1="220" x2="370" y2="220" stroke="#9aa6c8" stroke-width="1.5"/>
+              <text x="345" y="215" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#9aa6c8" text-anchor="middle">50 AU</text>
             </svg>
           </div>
           <div class="highlight__body">
@@ -468,43 +370,43 @@
           <div class="highlight__figure" aria-hidden="true">
             <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <radialGradient id="hl1" cx="50%" cy="50%"><stop offset="0%" stop-color="#b794ff" stop-opacity="0.4"/><stop offset="100%" stop-color="#07061a" stop-opacity="0"/></radialGradient>
+                <radialGradient id="hl1" cx="50%" cy="50%"><stop offset="0%" stop-color="#5b8cff" stop-opacity="0.4"/><stop offset="100%" stop-color="#04060f" stop-opacity="0"/></radialGradient>
               </defs>
               <rect width="400" height="250" fill="#0d0a26"/>
               <rect width="400" height="250" fill="url(#hl1)"/>
-              <line x1="40" y1="20" x2="40" y2="220" stroke="rgba(183,148,255,0.3)" stroke-width="1"/>
-              <line x1="40" y1="220" x2="380" y2="220" stroke="rgba(183,148,255,0.3)" stroke-width="1"/>
+              <line x1="40" y1="20" x2="40" y2="220" stroke="rgba(91,140,255,0.3)" stroke-width="1"/>
+              <line x1="40" y1="220" x2="380" y2="220" stroke="rgba(91,140,255,0.3)" stroke-width="1"/>
               <line x1="251" y1="20" x2="251" y2="220" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
-              <text x="253" y="32" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.4)">Sun</text>
+              <text x="253" y="32" font-family="Inter, system-ui, sans-serif" font-size="8" fill="rgba(255,255,255,0.4)">Sun</text>
               <line x1="40" y1="89" x2="380" y2="89" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="3,3"/>
-              <text x="360" y="86" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.4)" text-anchor="end">13 M_J</text>
+              <text x="360" y="86" font-family="Inter, system-ui, sans-serif" font-size="8" fill="rgba(255,255,255,0.4)" text-anchor="end">13 M_J</text>
               <g>
-                <circle cx="261" cy="95"  r="4" fill="#ff6aa6" opacity="0.9"/>
+                <circle cx="261" cy="95"  r="4" fill="#a86cff" opacity="0.9"/>
                 <circle cx="261" cy="86"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="324" cy="139" r="4" fill="#6be1ff" opacity="0.9"/>
+                <circle cx="324" cy="139" r="4" fill="#5fe1ff" opacity="0.9"/>
                 <circle cx="250" cy="65"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="286" cy="169" r="4" fill="#6be1ff" opacity="0.9"/>
+                <circle cx="286" cy="169" r="4" fill="#5fe1ff" opacity="0.9"/>
                 <circle cx="308" cy="52"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="286" cy="158" r="4" fill="#6be1ff" opacity="0.9"/>
-                <circle cx="73"  cy="115" r="4" fill="#ff6aa6" opacity="0.9"/>
+                <circle cx="286" cy="158" r="4" fill="#5fe1ff" opacity="0.9"/>
+                <circle cx="73"  cy="115" r="4" fill="#a86cff" opacity="0.9"/>
                 <circle cx="332" cy="61"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="289" cy="130" r="4" fill="#ff6aa6" opacity="0.9"/>
-                <circle cx="193" cy="95"  r="4" fill="#ff6aa6" opacity="0.9"/>
+                <circle cx="289" cy="130" r="4" fill="#a86cff" opacity="0.9"/>
+                <circle cx="193" cy="95"  r="4" fill="#a86cff" opacity="0.9"/>
                 <circle cx="114" cy="63"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="321" cy="109" r="4" fill="#ff6aa6" opacity="0.9"/>
-                <circle cx="220" cy="109" r="4" fill="#ff6aa6" opacity="0.9"/>
+                <circle cx="321" cy="109" r="4" fill="#a86cff" opacity="0.9"/>
+                <circle cx="220" cy="109" r="4" fill="#a86cff" opacity="0.9"/>
                 <circle cx="98"  cy="76"  r="5" fill="#ffd166" opacity="0.9"/>
                 <circle cx="155" cy="69"  r="5" fill="#ffd166" opacity="0.9"/>
                 <circle cx="289" cy="79"  r="5" fill="#ffd166" opacity="0.9"/>
                 <circle cx="234" cy="79"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="242" cy="104" r="4" fill="#ff6aa6" opacity="0.9"/>
+                <circle cx="242" cy="104" r="4" fill="#a86cff" opacity="0.9"/>
                 <circle cx="152" cy="86"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="278" cy="94"  r="4" fill="#ff6aa6" opacity="0.9"/>
-                <circle cx="319" cy="120" r="4" fill="#ff6aa6" opacity="0.9"/>
+                <circle cx="278" cy="94"  r="4" fill="#a86cff" opacity="0.9"/>
+                <circle cx="319" cy="120" r="4" fill="#a86cff" opacity="0.9"/>
               </g>
-              <text x="200" y="240" font-family="monospace" font-size="9" fill="#9a93c4" text-anchor="middle">[Fe/H] (dex) →</text>
-              <text x="20" y="120" font-family="monospace" font-size="9" fill="#9a93c4" text-anchor="middle" transform="rotate(-90 20 120)">M_p (M_J)</text>
-              <text x="380" y="240" font-family="monospace" font-size="7" fill="#6b6493" text-anchor="end" font-style="italic">22 stars · Swastik+2021</text>
+              <text x="200" y="240" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#9aa6c8" text-anchor="middle">[Fe/H] (dex) →</text>
+              <text x="20" y="120" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#9aa6c8" text-anchor="middle" transform="rotate(-90 20 120)">M_p (M_J)</text>
+              <text x="380" y="240" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#66708f" text-anchor="end" font-style="italic">22 stars · Swastik+2021</text>
             </svg>
           </div>
           <div class="highlight__body">
@@ -531,7 +433,7 @@
           <div class="highlight__figure" aria-hidden="true">
             <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <radialGradient id="hl2" cx="70%" cy="30%"><stop offset="0%" stop-color="#6be1ff" stop-opacity="0.35"/><stop offset="100%" stop-color="#07061a" stop-opacity="0"/></radialGradient>
+                <radialGradient id="hl2" cx="70%" cy="30%"><stop offset="0%" stop-color="#5fe1ff" stop-opacity="0.35"/><stop offset="100%" stop-color="#04060f" stop-opacity="0"/></radialGradient>
               </defs>
               <rect width="400" height="250" fill="#0d0a26"/>
               <rect width="400" height="250" fill="url(#hl2)"/>
@@ -543,22 +445,22 @@
               <circle cx="200" cy="125" r="40" fill="#ffd166" opacity="0.15"/>
               <circle cx="200" cy="125" r="20" fill="#ffd166" opacity="0.4"/>
               <g>
-                <circle cx="120" cy="105" r="2"   fill="#6be1ff"/>
-                <circle cx="140" cy="130" r="2.5" fill="#6be1ff"/>
-                <circle cx="170" cy="115" r="2"   fill="#b794ff"/>
-                <circle cx="190" cy="140" r="3"   fill="#ff6aa6"/>
+                <circle cx="120" cy="105" r="2"   fill="#5fe1ff"/>
+                <circle cx="140" cy="130" r="2.5" fill="#5fe1ff"/>
+                <circle cx="170" cy="115" r="2"   fill="#5b8cff"/>
+                <circle cx="190" cy="140" r="3"   fill="#a86cff"/>
                 <circle cx="210" cy="110" r="2.5" fill="#ffd166"/>
-                <circle cx="240" cy="135" r="2"   fill="#ff6aa6"/>
-                <circle cx="270" cy="120" r="3.5" fill="#b794ff"/>
-                <circle cx="290" cy="145" r="2"   fill="#6be1ff"/>
-                <circle cx="160" cy="80"  r="2"   fill="#6be1ff"/>
-                <circle cx="220" cy="170" r="2.5" fill="#ff6aa6"/>
-                <circle cx="100" cy="130" r="2"   fill="#b794ff"/>
+                <circle cx="240" cy="135" r="2"   fill="#a86cff"/>
+                <circle cx="270" cy="120" r="3.5" fill="#5b8cff"/>
+                <circle cx="290" cy="145" r="2"   fill="#5fe1ff"/>
+                <circle cx="160" cy="80"  r="2"   fill="#5fe1ff"/>
+                <circle cx="220" cy="170" r="2.5" fill="#a86cff"/>
+                <circle cx="100" cy="130" r="2"   fill="#5b8cff"/>
                 <circle cx="305" cy="100" r="2.5" fill="#ffd166"/>
-                <circle cx="80"  cy="90"  r="1.5" fill="#6be1ff"/>
-                <circle cx="320" cy="160" r="2"   fill="#ff6aa6"/>
+                <circle cx="80"  cy="90"  r="1.5" fill="#5fe1ff"/>
+                <circle cx="320" cy="160" r="2"   fill="#a86cff"/>
               </g>
-              <text x="200" y="225" font-family="monospace" font-size="10" fill="#9a93c4" text-anchor="middle">galactic radius →</text>
+              <text x="200" y="225" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#9aa6c8" text-anchor="middle">galactic radius →</text>
             </svg>
           </div>
           <div class="highlight__body">
@@ -585,7 +487,7 @@
           <div class="highlight__figure" aria-hidden="true">
             <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="hl3grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6be1ff" stop-opacity="0.5"/><stop offset="50%" stop-color="#b794ff" stop-opacity="0.5"/><stop offset="100%" stop-color="#ff6aa6" stop-opacity="0.5"/></linearGradient>
+                <linearGradient id="hl3grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#5fe1ff" stop-opacity="0.5"/><stop offset="50%" stop-color="#5b8cff" stop-opacity="0.5"/><stop offset="100%" stop-color="#a86cff" stop-opacity="0.5"/></linearGradient>
               </defs>
               <rect width="400" height="250" fill="#0d0a26"/>
               <g>
@@ -603,7 +505,7 @@
                 <rect x="325" y="205" width="20" height="25"  fill="url(#hl3grad)" opacity="0.4"/>
               </g>
               <path d="M 60 175 Q 130 60 175 65 Q 240 110 340 210" stroke="#ffd166" stroke-width="2" fill="none" opacity="0.7"/>
-              <text x="200" y="245" font-family="monospace" font-size="10" fill="#9a93c4" text-anchor="middle">stellar age (Gyr)</text>
+              <text x="200" y="245" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#9aa6c8" text-anchor="middle">stellar age (Gyr)</text>
             </svg>
           </div>
           <div class="highlight__body">

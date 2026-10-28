@@ -4,7 +4,7 @@ Live at **https://swastikc.github.io**
 
 ## What's new in this version
 
-- 🌌 **Animated cosmic hero scene** — purple ringed planet drifts, rings rotate slowly, moon orbits, stars twinkle, aurora glows pulse. Built in pure SVG/CSS (no Three.js — lightweight and elegant).
+- 🌌 **Deep-space redesign** (Oct 2026) — eclipse-over-a-planet hero, drifting nebula light, glass cards with cursor spotlight, Space Grotesk + Inter type, new orbit logo/favicon and share image
 - 🏆 **ERC UNVEIL badge** in the hero
 - 📊 **Updated CV** (Oct 2026) — 14 publications, 8 first-author, 7 submitted or in preparation
 - 🔭 **New Observations section** with VLT/SPHERE, JWST, HCT programs
