@@ -621,51 +621,102 @@ html.theme-light .theme-toggle .icon-moon { display: none; }
    ============================================================= */
 
 .highlights__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.4rem 2rem;
+  display: flex;
+  flex-direction: column;
   counter-reset: fig;
+  border-top: 2px solid var(--ink);
 }
-@media (max-width: 760px) { .highlights__grid { grid-template-columns: 1fr; } }
 
-.highlight { counter-increment: fig; display: flex; flex-direction: column; }
+/* One row per paper: figure and text side by side, alternating */
+.highlight {
+  counter-increment: fig;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  column-gap: clamp(1.5rem, 4vw, 3.2rem);
+  align-items: center;
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+.highlight:nth-child(even) .highlight__figure { order: 2; }
+
+.highlight__figure { margin: 0; min-width: 0; }
 /* Published figures sit on a white plate, as in the journal */
-.highlight__figure {
+.highlight__plate {
   position: relative;
-  margin: 0;
   aspect-ratio: 4 / 3;
   background: #fff;
   border: 1px solid var(--line);
   overflow: hidden;
 }
-.highlight__figure img {
+.highlight__plate img {
   position: absolute;
   inset: clamp(0.6rem, 1.6vw, 1.1rem);
   width: calc(100% - 2 * clamp(0.6rem, 1.6vw, 1.1rem));
   height: calc(100% - 2 * clamp(0.6rem, 1.6vw, 1.1rem));
-  display: block;
   object-fit: contain;
 }
-.highlight--wide { grid-column: 1 / -1; }
-.highlight--wide .highlight__figure { aspect-ratio: auto; padding: clamp(0.8rem, 2vw, 1.4rem); }
-.highlight--wide .highlight__figure img { position: static; width: 100%; height: auto; }
-@media (min-width: 900px) {
-  .highlight--wide .highlight__body { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); column-gap: 2.5rem; }
-  .highlight--wide .highlight__body > * { grid-column: 1; }
-  .highlight--wide .highlight__caption { grid-column: 2; grid-row: 1 / span 3; align-self: start; border-top: 0; padding-top: 0; margin-top: 0.2rem; }
-  .highlight--wide .highlight__cite { grid-column: 1 / -1; }
-}
-.highlight__caption {
-  font-size: 0.82rem;
+.highlight__figure figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
   font-style: italic;
-  line-height: 1.55;
+  line-height: 1.5;
   color: var(--ink-dim);
-  margin-bottom: 1rem;
 }
-.highlight__caption::before { content: "Figure. "; font-style: normal; font-weight: 700; color: var(--ink-mute); }
 
-.highlight__body { padding-top: 1rem; flex: 1; display: flex; flex-direction: column; }
+/* Wide figures (multi-panel) take the full row, text underneath */
+.highlight--wide { grid-template-columns: 1fr; row-gap: 1.6rem; }
+.highlight.highlight--wide .highlight__figure { order: 0; }
+.highlight--wide .highlight__plate { aspect-ratio: auto; padding: clamp(0.8rem, 2vw, 1.4rem); }
+.highlight--wide .highlight__plate img { position: static; width: 100%; height: auto; display: block; }
+.highlight--wide .highlight__body { max-width: 760px; }
+
+/* A key number set as the "figure" when no plot is shown */
+.highlight__stat {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: #17150f;
+  background:
+    radial-gradient(90% 70% at 50% 45%, rgba(31, 63, 209, 0.07), transparent 70%),
+    #fff;
+}
+.highlight__stat-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #55514a;
+}
+.highlight__stat-value {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  line-height: 1;
+  color: #1f3fd1;
+  white-space: nowrap;
+}
+.highlight__stat-unit { font-family: var(--font-display); font-size: clamp(1rem, 1.8vw, 1.3rem); }
+.highlight__stat-note { font-size: 0.82rem; color: #55514a; max-width: 26ch; }
+
+.highlight__body { min-width: 0; }
+.highlight__body::before {
+  content: counter(fig, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 0.7rem;
+}
 .highlight__tag {
+  display: block;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -673,23 +724,21 @@ html.theme-light .theme-toggle .icon-moon { display: none; }
   color: var(--ink-mute);
   margin-bottom: 0.5rem;
 }
-.highlight__tag::before {
-  content: "Fig. " counter(fig) " — ";
-  color: var(--accent);
+.highlight__title {
+  font-size: clamp(1.4rem, 2.3vw, 1.85rem);
+  line-height: 1.2;
+  margin-bottom: 0.7rem;
+  color: var(--ink);
 }
-.highlight__title { font-size: 1.35rem; line-height: 1.25; margin-bottom: 0.55rem; color: var(--ink); }
-.highlight__abstract { color: var(--ink-mute); font-size: 0.93rem; flex: 1; margin-bottom: 1rem; }
-.highlight__cite {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.6rem;
-  margin-top: auto;
-  padding-top: 0.8rem;
-  border-top: 1px solid var(--line);
-  font-size: 0.8rem;
-  font-style: italic;
-  color: var(--ink-dim);
+.highlight__abstract { color: var(--ink-mute); font-size: 0.98rem; margin-bottom: 1.2rem; }
+.highlight__links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.2rem; }
+.highlight__link { font-size: 0.85rem; font-weight: 700; color: var(--ink); text-decoration: underline; text-decoration-color: var(--line-strong); }
+.highlight__link:hover { color: var(--accent); text-decoration-color: currentColor; }
+
+@media (max-width: 760px) {
+  .highlight { grid-template-columns: 1fr; row-gap: 1.3rem; }
+  .highlight:nth-child(even) .highlight__figure { order: 0; }
+  .highlight__body::before { font-size: 1.9rem; }
 }
 
 .cite-btn {
