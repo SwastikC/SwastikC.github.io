@@ -14,7 +14,8 @@
   const themeBtn = document.getElementById('theme-toggle');
 
   const saved = localStorage.getItem('theme');
-  if (saved === 'light') root.classList.add('theme-light');
+  // Paper (light) is the default look; dark is opt-in
+  if (saved !== 'dark') root.classList.add('theme-light');
 
   if (themeBtn) {
     themeBtn.addEventListener('click', () => {

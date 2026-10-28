@@ -4,7 +4,7 @@ Live at **https://swastikc.github.io**
 
 ## What's new in this version
 
-- 🌌 **Deep-space redesign** (Oct 2026) — eclipse-over-a-planet hero, drifting nebula light, glass cards with cursor spotlight, Space Grotesk + Inter type, new orbit logo/favicon and share image
+- 📰 **Editorial redesign** (Oct 2026) — warm paper background, Playfair Display + Manrope type, photo-led hero, label/content column layout; dark mode via the toggle
 - 🏆 **ERC UNVEIL badge** in the hero
 - 📊 **Updated CV** (Oct 2026) — 14 publications, 8 first-author, 7 submitted or in preparation
 - 🔭 **New Observations section** with VLT/SPHERE, JWST, HCT programs
