@@ -609,6 +609,7 @@ html.theme-light .theme-toggle .icon-moon { display: none; }
   color: var(--accent);
 }
 .timeline__role { color: var(--ink-mute); }
+.timeline__with { display: block; font-size: 0.85em; color: var(--ink); }
 
 /* =============================================================
    Research themes
