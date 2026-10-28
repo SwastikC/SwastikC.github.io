@@ -1,0 +1,30 @@
+# Dr. Swastik Chowbay (publishes as C. Swastik)
+
+> Astrophysicist and ERC UNVEIL postdoctoral fellow at the Università degli Studi di Milano (University of Milan), Italy. Studies exoplanet host stars and planet-forming disks with VLT/SPHERE, VLT/ERIS, ALMA, JWST and the Himalayan Chandra Telescope.
+
+- Website: https://swastikc.github.io/
+- CV (PDF): https://swastikc.github.io/cv.pdf
+- ORCID: https://orcid.org/0000-0003-1371-8890
+- Google Scholar: https://scholar.google.com/citations?user=uVngnhsAAAAJ
+- Email: swastik.chowbay@unimi.it
+
+## Research
+- High-contrast imaging of protoplanetary disks and protoplanets (VLT/SPHERE star-hopping, JWST)
+- Spectroscopic characterisation of exoplanet host stars: metallicities, ages, kinematics
+- Galactic chemical evolution as a driver of planet demographics
+- Optical spectroscopy and accretion of hosts of newly imaged protoplanets (e.g. WISPIT 2)
+
+## Selected first-author papers
+- A quiet host in an active planet-forming disk: optical spectroscopy of WISPIT 2 — A&A 712, L13 (2026), arXiv:2607.20649
+- Imaging the LkCa 15 system in polarimetry and total intensity without self-subtraction artefacts — A&A 706, A312 (2026)
+- Host-star metallicities and kinematics of directly imaged brown-dwarf companions — A&A, accepted (2026)
+- Age analysis of extrasolar planets: insight from stellar isochrone models — AJ 167, 270 (2024)
+- Age distribution of exoplanet host-stars: chemical and kinematic age proxies from Gaia DR3 — AJ 166, 91 (2023)
+- Galactic chemical evolution of exoplanet hosting stars: are high-mass planetary systems young? — AJ 164, 60 (2022)
+- Host-star metallicity of directly imaged wide-orbit planets: implications for planet formation — AJ 161, 114 (2021)
+
+## Positions and education
+- Postdoctoral Fellow, Università degli Studi di Milano, with Prof. Stefano Facchini (2024–present)
+- Postdoctoral Researcher, Indian Institute of Astrophysics, Bengaluru (2024)
+- Ph.D. in Physics, Pondicherry University, research at the Indian Institute of Astrophysics with Prof. Ravinder K. Banyal (2018–2024)
+- Intern, European Southern Observatory, Santiago, with Dr. Zahed Wahhaj (2021)

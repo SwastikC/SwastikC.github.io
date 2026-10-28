@@ -8,21 +8,14 @@
 
 ## ⚡ TODAY (30 minutes) — the essential steps
 
-### 1. Google Search Console (10 min) — biggest impact
+### 1. Google Search Console (5 min) — biggest impact
 
-1. Open https://search.google.com/search-console
-2. Click "Add property" → **URL prefix** → enter `https://swastikc.github.io/`
-3. Verify ownership: choose **HTML tag** method
-   - Google gives you a meta tag like:
-     `<meta name="google-site-verification" content="abc123XYZ..." />`
-   - Copy that whole tag
-   - Send it to Claude — I'll add it to your index.html
-   - OR add it yourself: in `index.html`, find `<!-- SEO: Verification tags -->` and paste below
-   - Commit, wait 2 min, click "Verify" in Search Console
-4. After verification, in Search Console:
-   - **URL Inspection** → paste `https://swastikc.github.io/` → click **Request Indexing**
-   - **Sitemaps** → enter `sitemap.xml` → Submit
-5. Within 1–3 days, your site shows up in Google.
+The site is already verified with Google: the file `googlebc43f718f2b599a0.html` is in the repo, so no meta tag is needed.
+
+1. Open https://search.google.com/search-console and pick `https://swastikc.github.io/`
+2. **Sitemaps** → enter `sitemap.xml` → Submit. Resubmit it after big updates; it now lists the research figures for Google Images.
+3. **URL Inspection** → paste `https://swastikc.github.io/` → **Request Indexing**
+4. Optional: **Rich results test** (https://search.google.com/test/rich-results) on the homepage should show the *Profile page* result.
 
 ### 2. Bing Webmaster Tools (5 min)
 
@@ -85,18 +78,19 @@ https://ui.adsabs.harvard.edu/user/orcid — link your ORCID and homepage.
 
 ---
 
-## 🔬 Already done in the site
+## 🔬 Already done in the site (Oct 2026 pass)
 
-These are baked in:
+- ✅ Title and description lead with your name, including "C. Swastik", the name you publish under
+- ✅ Schema.org **ProfilePage** + **Person** (ORCID, Scholar, UniMi, GitHub, affiliations, alma maters, ASI membership, awards, research topics) + **ScholarlyArticle** for 7 first-author papers
+- ✅ `sitemap.xml` with image entries; `robots.txt` allows everything and points to the sitemap
+- ✅ Open Graph + Twitter Card with a designed share image
+- ✅ Real favicon files (Google shows these next to your result), apple-touch icon, web manifest
+- ✅ `llms.txt` summary for AI search assistants (ChatGPT, Perplexity, etc.)
+- ✅ Old duplicate site (`/website/`) replaced by a redirect; old CV copies now point to the current CV
+- ✅ Lighthouse: Performance 99 · Accessibility 100 · Best Practices 100 · SEO 100 (fonts load without blocking, WebP figures)
+- ✅ Canonical URL, custom 404 page, `rel="me"` links to ORCID/Scholar/GitHub
 
-- ✅ `sitemap.xml` and `robots.txt` correctly configured
-- ✅ Open Graph + Twitter Card metadata
-- ✅ Schema.org Person JSON-LD (ORCID, ERC grant, UniMi affiliation)
-- ✅ Schema.org ScholarlyArticle JSON-LD for 5 papers
-- ✅ Canonical URL set
-- ✅ Distinctive keywords (Stefano Facchini, JWST, ERC UNVEIL)
-
-The technical SEO is solid. The reason you're not in search yet is purely **distribution** — submission + backlinks.
+The technical SEO is complete. From here, visibility comes from **links to the site** (steps 3–8 above): every profile and page that links to `swastikc.github.io` helps.
 
 ---
 

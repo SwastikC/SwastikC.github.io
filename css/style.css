@@ -10,7 +10,7 @@
   --bg-elev:   #1b1a17;
   --ink:       #f3efe7;
   --ink-mute:  #b5afa3;
-  --ink-dim:   #7f796e;
+  --ink-dim:   #958f83;
   --accent:    #9db0ff;
   --accent-soft: rgba(157, 176, 255, 0.1);
   --gold:      #e2b45c;
@@ -30,10 +30,10 @@ html.theme-light {
   --bg-elev:   #fffdf9;
   --ink:       #17150f;
   --ink-mute:  #55514a;
-  --ink-dim:   #8c8679;
+  --ink-dim:   #6e695e;
   --accent:    #1f3fd1;
   --accent-soft: rgba(31, 63, 209, 0.07);
-  --gold:      #a8741a;
+  --gold:      #8a5d0e;
   --line:        rgba(23, 21, 15, 0.12);
   --line-strong: rgba(23, 21, 15, 0.3);
 }
