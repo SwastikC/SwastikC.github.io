@@ -310,43 +310,21 @@
         <span class="section__num">03</span>
         <h2 class="section__title" id="highlights-title">Research Highlights</h2>
       </div>
-      <p class="section__lede">A visual tour of key findings. Hover or tap a card to read more.</p>
+      <p class="section__lede">Key results from my papers, shown with the published figures.</p>
 
       <div class="highlights__grid">
-        <!-- HL 1: LkCa 15 -->
-        <article class="highlight">
-          <div class="highlight__figure" aria-hidden="true">
-            <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <radialGradient id="hl4center" cx="50%" cy="50%" r="10%"><stop offset="0%" stop-color="#fff" stop-opacity="1"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
-                <radialGradient id="hl4ring" cx="50%" cy="50%" r="50%"><stop offset="40%" stop-color="#04060f" stop-opacity="0"/><stop offset="55%" stop-color="#a86cff" stop-opacity="0.5"/><stop offset="65%" stop-color="#5b8cff" stop-opacity="0.4"/><stop offset="80%" stop-color="#5fe1ff" stop-opacity="0.2"/><stop offset="100%" stop-color="#04060f" stop-opacity="0"/></radialGradient>
-              </defs>
-              <rect width="400" height="250" fill="#04060f"/>
-              <g fill="#eef3ff">
-                <circle cx="60" cy="40" r="0.8"/><circle cx="350" cy="60" r="1.2"/><circle cx="80" cy="200" r="0.7"/>
-                <circle cx="320" cy="220" r="1"/><circle cx="20" cy="120" r="0.6"/><circle cx="380" cy="150" r="0.9"/>
-                <circle cx="200" cy="20" r="0.7"/><circle cx="180" cy="230" r="0.8"/>
-              </g>
-              <ellipse cx="200" cy="125" rx="130" ry="55" fill="url(#hl4ring)"/>
-              <ellipse cx="200" cy="125" rx="95" ry="38" fill="#04060f"/>
-              <ellipse cx="200" cy="125" rx="95" ry="38" stroke="rgba(91,140,255,0.2)" stroke-width="0.5" fill="none"/>
-              <circle cx="200" cy="125" r="6" fill="#fff"/>
-              <circle cx="200" cy="125" r="14" fill="url(#hl4center)" opacity="0.6"/>
-              <g stroke="rgba(255,255,255,0.15)" stroke-width="0.5">
-                <line x1="200" y1="100" x2="200" y2="150"/>
-                <line x1="175" y1="125" x2="225" y2="125"/>
-              </g>
-              <line x1="320" y1="220" x2="370" y2="220" stroke="#9aa6c8" stroke-width="1.5"/>
-              <text x="345" y="215" font-family="Manrope, system-ui, sans-serif" font-size="9" fill="#9aa6c8" text-anchor="middle">50 AU</text>
-            </svg>
-          </div>
+        <article class="highlight highlight--wide">
+          <figure class="highlight__figure">
+            <img src="images/research/lkca15-sphere.png" alt="VLT/SPHERE K-band images of the LkCa 15 disk: total intensity, Stokes Q and Stokes U" width="1033" height="368" loading="lazy" />
+          </figure>
           <div class="highlight__body">
             <span class="highlight__tag">2026 · A&amp;A 706, A312</span>
             <h3 class="highlight__title">LkCa 15 imaged without self-subtraction artefacts</h3>
-            <p class="highlight__abstract">Star-hopping with VLT/SPHERE produces a clean polarimetric + total-intensity view of the LkCa 15 protoplanetary disk. The measured phase function and polarized fraction favour porous aggregates over compact grains — and the method recovered three survey disks missed by the original reduction.</p>
+            <p class="highlight__abstract">Star-hopping with VLT/SPHERE gives a clean polarimetric and total-intensity view of the LkCa 15 protoplanetary disk. The measured phase function and polarized fraction favour porous dust aggregates over compact grains, and the same method recovered three survey disks that the original reduction missed.</p>
+            <p class="highlight__caption">VLT/SPHERE IRDIS K-band total intensity (left) and polarimetric Stokes <em>Q</em> and <em>U</em> (centre, right) images of LkCa 15.</p>
             <div class="highlight__cite">
-              <span>C. Swastik, Z. Wahhaj, et al.</span>
-              <button class="cite-btn" data-cite="@article{SwastikLkCa15,
+              <span>C. Swastik, Z. Wahhaj, M. Benisty et al.</span>
+              <button class="cite-btn" data-cite="@article{Swastik2026LkCa15,
   author = {C. Swastik and Z. Wahhaj and M. Benisty and S. Arora and C. Ginski and B. B. Ren and R. G. van Holstein and R. de Rosa and R. K. Banyal and R. Tazaki},
   title = {Imaging the LkCa 15 system in polarimetry and total intensity without self-subtraction artefacts},
   journal = {Astronomy and Astrophysics},
@@ -359,56 +337,17 @@
           </div>
         </article>
 
-        <!-- HL 2: Metallicity scatter -->
         <article class="highlight">
-          <div class="highlight__figure" aria-hidden="true">
-            <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <radialGradient id="hl1" cx="50%" cy="50%"><stop offset="0%" stop-color="#5b8cff" stop-opacity="0.4"/><stop offset="100%" stop-color="#04060f" stop-opacity="0"/></radialGradient>
-              </defs>
-              <rect width="400" height="250" fill="#0d0a26"/>
-              <rect width="400" height="250" fill="url(#hl1)"/>
-              <line x1="40" y1="20" x2="40" y2="220" stroke="rgba(91,140,255,0.3)" stroke-width="1"/>
-              <line x1="40" y1="220" x2="380" y2="220" stroke="rgba(91,140,255,0.3)" stroke-width="1"/>
-              <line x1="251" y1="20" x2="251" y2="220" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
-              <text x="253" y="32" font-family="Manrope, system-ui, sans-serif" font-size="8" fill="rgba(255,255,255,0.4)">Sun</text>
-              <line x1="40" y1="89" x2="380" y2="89" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="3,3"/>
-              <text x="360" y="86" font-family="Manrope, system-ui, sans-serif" font-size="8" fill="rgba(255,255,255,0.4)" text-anchor="end">13 M_J</text>
-              <g>
-                <circle cx="261" cy="95"  r="4" fill="#a86cff" opacity="0.9"/>
-                <circle cx="261" cy="86"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="324" cy="139" r="4" fill="#5fe1ff" opacity="0.9"/>
-                <circle cx="250" cy="65"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="286" cy="169" r="4" fill="#5fe1ff" opacity="0.9"/>
-                <circle cx="308" cy="52"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="286" cy="158" r="4" fill="#5fe1ff" opacity="0.9"/>
-                <circle cx="73"  cy="115" r="4" fill="#a86cff" opacity="0.9"/>
-                <circle cx="332" cy="61"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="289" cy="130" r="4" fill="#a86cff" opacity="0.9"/>
-                <circle cx="193" cy="95"  r="4" fill="#a86cff" opacity="0.9"/>
-                <circle cx="114" cy="63"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="321" cy="109" r="4" fill="#a86cff" opacity="0.9"/>
-                <circle cx="220" cy="109" r="4" fill="#a86cff" opacity="0.9"/>
-                <circle cx="98"  cy="76"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="155" cy="69"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="289" cy="79"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="234" cy="79"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="242" cy="104" r="4" fill="#a86cff" opacity="0.9"/>
-                <circle cx="152" cy="86"  r="5" fill="#ffd166" opacity="0.9"/>
-                <circle cx="278" cy="94"  r="4" fill="#a86cff" opacity="0.9"/>
-                <circle cx="319" cy="120" r="4" fill="#a86cff" opacity="0.9"/>
-              </g>
-              <text x="200" y="240" font-family="Manrope, system-ui, sans-serif" font-size="9" fill="#9aa6c8" text-anchor="middle">[Fe/H] (dex) →</text>
-              <text x="20" y="120" font-family="Manrope, system-ui, sans-serif" font-size="9" fill="#9aa6c8" text-anchor="middle" transform="rotate(-90 20 120)">M_p (M_J)</text>
-              <text x="380" y="240" font-family="Manrope, system-ui, sans-serif" font-size="7" fill="#66708f" text-anchor="end" font-style="italic">22 stars · Swastik+2021</text>
-            </svg>
-          </div>
+          <figure class="highlight__figure">
+            <img src="images/research/dip-host-metallicity.png" alt="Gaussian-mixture clusters of Jupiters, super-Jupiters and brown dwarfs in the metallicity versus planet-mass plane" width="998" height="683" loading="lazy" />
+          </figure>
           <div class="highlight__body">
             <span class="highlight__tag">2021 · AJ 161, 114</span>
-            <h3 class="highlight__title">DIP hosts span a wide metallicity range</h3>
-            <p class="highlight__abstract">Mean [Fe/H] for 22 directly-imaged planet hosts: −0.04±0.27 dex — close to solar with large scatter. Wide-orbit massive planets don't require metal-rich environments, suggesting a formation pathway distinct from close-in giants (likely gravitational instability).</p>
+            <h3 class="highlight__title">Wide-orbit giants don't need metal-rich hosts</h3>
+            <p class="highlight__abstract">Spectroscopic metallicities for stars hosting directly imaged planets give a mean [Fe/H] of −0.04 ± 0.27 dex for 22 hosts: close to solar with a large scatter, unlike the metal-rich hosts of close-in giant planets. Wide-orbit companions therefore point to a different formation pathway.</p>
+            <p class="highlight__caption">Gaussian-mixture clusters of Jupiter-type planets (blue), super-Jupiters (red) and brown dwarfs (green) in the metallicity–mass plane. The directly imaged planets studied (orange stars, grey ellipse) sit between super-Jupiters and brown dwarfs.</p>
             <div class="highlight__cite">
-              <span>C. Swastik et al.</span>
+              <span>C. Swastik, R. K. Banyal, M. Narang et al.</span>
               <button class="cite-btn" data-cite="@article{Swastik2021,
   author = {C. Swastik and R. K. Banyal and M. Narang and P. Manoj and T. Sivarani and B. E. Reddy and S. P. Rajaguru},
   title = {Host-star metallicity of directly imaged wide-orbit planets: implications for planet formation},
@@ -422,50 +361,20 @@
           </div>
         </article>
 
-        <!-- HL 3: GCE -->
         <article class="highlight">
-          <div class="highlight__figure" aria-hidden="true">
-            <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <radialGradient id="hl2" cx="70%" cy="30%"><stop offset="0%" stop-color="#5fe1ff" stop-opacity="0.35"/><stop offset="100%" stop-color="#04060f" stop-opacity="0"/></radialGradient>
-              </defs>
-              <rect width="400" height="250" fill="#0d0a26"/>
-              <rect width="400" height="250" fill="url(#hl2)"/>
-              <g stroke="rgba(255,255,255,0.08)" fill="none" stroke-width="1">
-                <ellipse cx="200" cy="125" rx="160" ry="40" transform="rotate(20 200 125)"/>
-                <ellipse cx="200" cy="125" rx="120" ry="30" transform="rotate(20 200 125)"/>
-                <ellipse cx="200" cy="125" rx="80"  ry="20" transform="rotate(20 200 125)"/>
-              </g>
-              <circle cx="200" cy="125" r="40" fill="#ffd166" opacity="0.15"/>
-              <circle cx="200" cy="125" r="20" fill="#ffd166" opacity="0.4"/>
-              <g>
-                <circle cx="120" cy="105" r="2"   fill="#5fe1ff"/>
-                <circle cx="140" cy="130" r="2.5" fill="#5fe1ff"/>
-                <circle cx="170" cy="115" r="2"   fill="#5b8cff"/>
-                <circle cx="190" cy="140" r="3"   fill="#a86cff"/>
-                <circle cx="210" cy="110" r="2.5" fill="#ffd166"/>
-                <circle cx="240" cy="135" r="2"   fill="#a86cff"/>
-                <circle cx="270" cy="120" r="3.5" fill="#5b8cff"/>
-                <circle cx="290" cy="145" r="2"   fill="#5fe1ff"/>
-                <circle cx="160" cy="80"  r="2"   fill="#5fe1ff"/>
-                <circle cx="220" cy="170" r="2.5" fill="#a86cff"/>
-                <circle cx="100" cy="130" r="2"   fill="#5b8cff"/>
-                <circle cx="305" cy="100" r="2.5" fill="#ffd166"/>
-                <circle cx="80"  cy="90"  r="1.5" fill="#5fe1ff"/>
-                <circle cx="320" cy="160" r="2"   fill="#a86cff"/>
-              </g>
-              <text x="200" y="225" font-family="Manrope, system-ui, sans-serif" font-size="10" fill="#9aa6c8" text-anchor="middle">galactic radius →</text>
-            </svg>
-          </div>
+          <figure class="highlight__figure">
+            <img src="images/research/gce-host-ages.png" alt="Age histograms of stars hosting small planets, giant planets and super-Jupiters in the HARPS-GTO sample" width="1100" height="966" loading="lazy" />
+          </figure>
           <div class="highlight__body">
             <span class="highlight__tag">2022 · AJ 164, 60</span>
-            <h3 class="highlight__title">Galactic chemical evolution shapes planet demographics</h3>
-            <p class="highlight__abstract">Combining stellar ages with planet-mass distributions across the galaxy: high-mass planetary systems orbit systematically younger stars. Planet demographics are partly a fossil record of where in the galaxy — and when — a star was born.</p>
+            <h3 class="highlight__title">Giant-planet hosts are younger</h3>
+            <p class="highlight__abstract">Homogeneous abundances and isochrone ages for planet hosts in the HARPS-GTO, CKS and CPS surveys show host chemistry and age changing with planet mass. Stars hosting giant planets and super-Jupiters are younger than those hosting small planets, so planet demographics carry an imprint of Galactic chemical evolution.</p>
+            <p class="highlight__caption">Isochrone ages of HARPS-GTO planet hosts, split into super-Jupiters, giant planets and small planets. Vertical lines mark each median.</p>
             <div class="highlight__cite">
-              <span>C. Swastik et al.</span>
+              <span>C. Swastik, R. K. Banyal, M. Narang et al.</span>
               <button class="cite-btn" data-cite="@article{Swastik2022,
   author = {C. Swastik and R. K. Banyal and M. Narang and P. Manoj and T. Sivarani and S. P. Rajaguru and A. Unni and B. Banerjee},
-  title = {Galactic chemical evolution of exoplanet host-stars: Are high-mass planetary systems young?},
+  title = {Galactic chemical evolution of exoplanet hosting stars: are high-mass planetary systems young?},
   journal = {The Astronomical Journal},
   volume = {164}, pages = {60}, year = {2022}
 }" title="Copy BibTeX">
@@ -476,43 +385,46 @@
           </div>
         </article>
 
-        <!-- HL 4: GAIA ages -->
         <article class="highlight">
-          <div class="highlight__figure" aria-hidden="true">
-            <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="hl3grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#5fe1ff" stop-opacity="0.5"/><stop offset="50%" stop-color="#5b8cff" stop-opacity="0.5"/><stop offset="100%" stop-color="#a86cff" stop-opacity="0.5"/></linearGradient>
-              </defs>
-              <rect width="400" height="250" fill="#0d0a26"/>
-              <g>
-                <rect x="50"  y="170" width="20" height="60"  fill="url(#hl3grad)" opacity="0.7"/>
-                <rect x="75"  y="140" width="20" height="90"  fill="url(#hl3grad)" opacity="0.8"/>
-                <rect x="100" y="100" width="20" height="130" fill="url(#hl3grad)" opacity="0.9"/>
-                <rect x="125" y="70"  width="20" height="160" fill="url(#hl3grad)" opacity="1.0"/>
-                <rect x="150" y="55"  width="20" height="175" fill="url(#hl3grad)" opacity="1.0"/>
-                <rect x="175" y="65"  width="20" height="165" fill="url(#hl3grad)" opacity="0.95"/>
-                <rect x="200" y="85"  width="20" height="145" fill="url(#hl3grad)" opacity="0.85"/>
-                <rect x="225" y="115" width="20" height="115" fill="url(#hl3grad)" opacity="0.8"/>
-                <rect x="250" y="145" width="20" height="85"  fill="url(#hl3grad)" opacity="0.7"/>
-                <rect x="275" y="170" width="20" height="60"  fill="url(#hl3grad)" opacity="0.6"/>
-                <rect x="300" y="190" width="20" height="40"  fill="url(#hl3grad)" opacity="0.5"/>
-                <rect x="325" y="205" width="20" height="25"  fill="url(#hl3grad)" opacity="0.4"/>
-              </g>
-              <path d="M 60 175 Q 130 60 175 65 Q 240 110 340 210" stroke="#ffd166" stroke-width="2" fill="none" opacity="0.7"/>
-              <text x="200" y="245" font-family="Manrope, system-ui, sans-serif" font-size="10" fill="#9aa6c8" text-anchor="middle">stellar age (Gyr)</text>
-            </svg>
-          </div>
+          <figure class="highlight__figure">
+            <img src="images/research/gaia-toomre.png" alt="Toomre diagram of giant-planet and small-planet host stars from Gaia DR3" width="584" height="529" loading="lazy" />
+          </figure>
           <div class="highlight__body">
             <span class="highlight__tag">2023 · AJ 166, 91</span>
-            <h3 class="highlight__title">Dating exoplanet hosts with GAIA DR3</h3>
-            <p class="highlight__abstract">Combining chemical-clock proxies with GAIA-derived kinematics to estimate ages for 1000+ exoplanet host stars — the largest such sample to date, anchoring the age–mass story.</p>
+            <h3 class="highlight__title">Kinematics tell the same story</h3>
+            <p class="highlight__abstract">Gaia DR3 chemistry and Galactic orbits give two independent age proxies for planet hosts. Giant-planet hosts move with lower peculiar velocities than small-planet hosts, as expected for a younger, kinematically colder population.</p>
+            <p class="highlight__caption">Toomre diagram of planet hosts. Red and blue dotted circles enclose about 50% (inner) and 80% (outer) of giant- and small-planet hosts respectively.</p>
             <div class="highlight__cite">
-              <span>C. Swastik et al.</span>
+              <span>C. Swastik, R. K. Banyal, M. Narang et al.</span>
               <button class="cite-btn" data-cite="@article{Swastik2023,
   author = {C. Swastik and R. K. Banyal and M. Narang and A. Unni and B. Banerjee and P. Manoj and T. Sivarani},
-  title = {Age Distribution of Exoplanet Host-Stars: Chemical and Kinematic Age Proxies from GAIA DR3},
+  title = {Age distribution of exoplanet host-stars: chemical and kinematic age proxies from Gaia DR3},
   journal = {The Astronomical Journal},
   volume = {166}, pages = {91}, year = {2023}
+}" title="Copy BibTeX">
+                <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                BibTeX
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="highlight">
+          <figure class="highlight__figure">
+            <img src="images/research/isochrone-giant-ratio.png" alt="Ratio of giant-planet to small-planet hosts as a function of stellar age for several isochrone models" width="398" height="268" loading="lazy" />
+          </figure>
+          <div class="highlight__body">
+            <span class="highlight__tag">2024 · AJ 167, 270</span>
+            <h3 class="highlight__title">Giant planets favour younger stars</h3>
+            <p class="highlight__abstract">Ages from MESA, PARSEC and Yonsei–Yale isochrones, with Gaia and spectroscopic inputs, agree: the ratio of giant- to small-planet hosts falls with stellar age, and stars older than about 5 Gyr mostly host small planets.</p>
+            <p class="highlight__caption">Ratio of giant-planet to small-planet hosts against stellar age (1 Gyr bins) for different isochrone models and input parameters.</p>
+            <div class="highlight__cite">
+              <span>C. Swastik, R. K. Banyal, M. Narang et al.</span>
+              <button class="cite-btn" data-cite="@article{Swastik2024,
+  author = {C. Swastik and R. K. Banyal and M. Narang and A. Unni and T. Sivarani},
+  title = {Age analysis of extrasolar planets: insight from stellar isochrone models},
+  journal = {The Astronomical Journal},
+  volume = {167}, pages = {270}, year = {2024}
 }" title="Copy BibTeX">
                 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                 BibTeX
