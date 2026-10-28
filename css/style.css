@@ -696,40 +696,6 @@ html.theme-light .theme-toggle .icon-moon { display: none; }
 .highlight--wide .highlight__plate img { position: static; width: 100%; height: auto; display: block; }
 .highlight--wide .highlight__body { max-width: 760px; }
 
-/* A key number set as the "figure" when no plot is shown */
-.highlight__stat {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 1.5rem;
-  text-align: center;
-  color: #17150f;
-  background:
-    radial-gradient(90% 70% at 50% 45%, rgba(31, 63, 209, 0.07), transparent 70%),
-    #fff;
-}
-.highlight__stat-label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #55514a;
-}
-.highlight__stat-value {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
-  line-height: 1;
-  color: #1f3fd1;
-  white-space: nowrap;
-}
-.highlight__stat-unit { font-family: var(--font-display); font-size: clamp(1rem, 1.8vw, 1.3rem); }
-.highlight__stat-note { font-size: 0.82rem; color: #55514a; max-width: 26ch; }
-
 .highlight__body { min-width: 0; }
 .highlight__body::before {
   content: counter(fig, decimal-leading-zero);
