@@ -202,8 +202,16 @@
         <div class="hero__meta">
           <div><span class="hero__meta-num">14</span><span class="hero__meta-lbl">Publications</span></div>
           <div><span class="hero__meta-num">8</span><span class="hero__meta-lbl">First author</span></div>
-          <div><span class="hero__meta-num">ALMA</span><span class="hero__meta-lbl">Cycle 13 PI</span></div>
-          <div><span class="hero__meta-num">JWST</span><span class="hero__meta-lbl">Cycle 5 Co-I</span></div>
+          <div class="hero__meta-tel">
+            <ul class="hero__tel">
+              <li><span class="hero__tel-name">VLT/SPHERE</span><span class="hero__tel-role">PI · P116</span></li>
+              <li><span class="hero__tel-name">ALMA</span><span class="hero__tel-role">PI · Cycle 13</span></li>
+              <li><span class="hero__tel-name">JWST</span><span class="hero__tel-role">Co-I · Cycle 5</span></li>
+              <li><span class="hero__tel-name">HCT</span><span class="hero__tel-role">PI · 4 programs</span></li>
+              <li><span class="hero__tel-name">VLT/ERIS</span><span class="hero__tel-role">L′ imaging</span></li>
+            </ul>
+            <span class="hero__meta-lbl">Telescopes &amp; programs</span>
+          </div>
         </div>
       </div>
     </section>
@@ -310,20 +318,54 @@
         <span class="section__num">03</span>
         <h2 class="section__title" id="highlights-title">Research Highlights</h2>
       </div>
-      <p class="section__lede">Key results from my papers, shown with the published figures.</p>
+      <p class="section__lede">Selected results, newest first, with figures from the papers.</p>
 
       <div class="highlights__grid">
-        <article class="highlight highlight--wide">
+        <article class="highlight">
           <figure class="highlight__figure">
-            <img src="images/research/lkca15-sphere.png" alt="VLT/SPHERE K-band images of the LkCa 15 disk: total intensity, Stokes Q and Stokes U" width="1033" height="368" loading="lazy" />
+            <div class="highlight__plate">
+              <div class="highlight__stat" role="img" aria-label="Stellar accretion rate of WISPIT 2: below 3.6 times 10 to the minus 11 solar masses per year (95 percent upper limit)">
+                <span class="highlight__stat-label">WISPIT 2 · stellar accretion</span>
+                <span class="highlight__stat-value">&lt; 3.6 × 10<sup>−11</sup></span>
+                <span class="highlight__stat-unit">M<sub>☉</sub> yr<sup>−1</sup></span>
+                <span class="highlight__stat-note">95% upper limit on the mass-accretion rate</span>
+              </div>
+            </div>
+            <figcaption>Upper limit on accretion onto the WISPIT 2 host star from HCT optical spectroscopy.</figcaption>
           </figure>
           <div class="highlight__body">
-            <span class="highlight__tag">2026 · A&amp;A 706, A312</span>
+            <span class="highlight__tag">A&amp;A 712, L13 · 2026 · Letter</span>
+            <h3 class="highlight__title">A quiet host in an active planet-forming disk</h3>
+            <p class="highlight__abstract">The first optical spectrum of WISPIT 2, taken with the 2-m Himalayan Chandra Telescope, shows no sign of gas accreting onto the star, even though its disk hosts an accreting protoplanet. The upper limit sits a few times below the accretion rate of PDS 70.</p>
+            <div class="highlight__links">
+              <a class="highlight__link" href="https://arxiv.org/abs/2607.20649" target="_blank" rel="noopener">Read on arXiv ↗</a>
+              <button class="cite-btn" data-cite="@article{Swastik2026WISPIT2,
+  author = {C. Swastik and M. Bestha and L. S. Sonith and S. Facchini and T. Sivarani and R. K. Banyal and Z. Wahhaj and A. Choudhary and M. Gopinathan and P. Saraf and A. Mallick and M. P. Navaneeth and S. Biswas and K. Khushbu},
+  title = {A quiet host in an active planet-forming disk: optical spectroscopy of WISPIT 2},
+  journal = {Astronomy and Astrophysics},
+  volume = {712}, pages = {L13}, year = {2026},
+  eprint = {2607.20649}
+}" title="Copy BibTeX">
+                <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                BibTeX
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="highlight highlight--wide">
+          <figure class="highlight__figure">
+            <div class="highlight__plate">
+              <img src="images/research/lkca15-sphere.png" alt="VLT/SPHERE K-band images of the LkCa 15 disk: total intensity, Stokes Q and Stokes U" width="1033" height="368" loading="lazy" />
+            </div>
+            <figcaption>VLT/SPHERE IRDIS K-band total intensity (left) and polarimetric Stokes Q and U (centre, right).</figcaption>
+          </figure>
+          <div class="highlight__body">
+            <span class="highlight__tag">A&amp;A 706, A312 · 2026</span>
             <h3 class="highlight__title">LkCa 15 imaged without self-subtraction artefacts</h3>
-            <p class="highlight__abstract">Star-hopping with VLT/SPHERE gives a clean polarimetric and total-intensity view of the LkCa 15 protoplanetary disk. The measured phase function and polarized fraction favour porous dust aggregates over compact grains, and the same method recovered three survey disks that the original reduction missed.</p>
-            <p class="highlight__caption">VLT/SPHERE IRDIS K-band total intensity (left) and polarimetric Stokes <em>Q</em> and <em>U</em> (centre, right) images of LkCa 15.</p>
-            <div class="highlight__cite">
-              <span>C. Swastik, Z. Wahhaj, M. Benisty et al.</span>
+            <p class="highlight__abstract">Star-hopping with VLT/SPHERE gives clean total-intensity and polarimetric images of the LkCa 15 disk. Its measured phase function and polarized fraction favour porous dust aggregates over compact grains.</p>
+            <div class="highlight__links">
+              <a class="highlight__link" href="https://ui.adsabs.harvard.edu/search/q=title%3A%22Imaging%20the%20LkCa%2015%20system%20in%20polarimetry%20and%20total%20intensity%20without%20self-subtraction%20artefacts%22" target="_blank" rel="noopener">Find on ADS ↗</a>
               <button class="cite-btn" data-cite="@article{Swastik2026LkCa15,
   author = {C. Swastik and Z. Wahhaj and M. Benisty and S. Arora and C. Ginski and B. B. Ren and R. G. van Holstein and R. de Rosa and R. K. Banyal and R. Tazaki},
   title = {Imaging the LkCa 15 system in polarimetry and total intensity without self-subtraction artefacts},
@@ -339,20 +381,22 @@
 
         <article class="highlight">
           <figure class="highlight__figure">
-            <img src="images/research/dip-host-metallicity.png" alt="Gaussian-mixture clusters of Jupiters, super-Jupiters and brown dwarfs in the metallicity versus planet-mass plane" width="998" height="683" loading="lazy" />
+            <div class="highlight__plate">
+              <img src="images/research/isochrone-giant-ratio.png" alt="Ratio of giant-planet to small-planet hosts as a function of stellar age for several isochrone models" width="398" height="268" loading="lazy" />
+            </div>
+            <figcaption>Ratio of giant- to small-planet hosts against stellar age for several isochrone models.</figcaption>
           </figure>
           <div class="highlight__body">
-            <span class="highlight__tag">2021 · AJ 161, 114</span>
-            <h3 class="highlight__title">Wide-orbit giants don't need metal-rich hosts</h3>
-            <p class="highlight__abstract">Spectroscopic metallicities for stars hosting directly imaged planets give a mean [Fe/H] of −0.04 ± 0.27 dex for 22 hosts: close to solar with a large scatter, unlike the metal-rich hosts of close-in giant planets. Wide-orbit companions therefore point to a different formation pathway.</p>
-            <p class="highlight__caption">Gaussian-mixture clusters of Jupiter-type planets (blue), super-Jupiters (red) and brown dwarfs (green) in the metallicity–mass plane. The directly imaged planets studied (orange stars, grey ellipse) sit between super-Jupiters and brown dwarfs.</p>
-            <div class="highlight__cite">
-              <span>C. Swastik, R. K. Banyal, M. Narang et al.</span>
-              <button class="cite-btn" data-cite="@article{Swastik2021,
-  author = {C. Swastik and R. K. Banyal and M. Narang and P. Manoj and T. Sivarani and B. E. Reddy and S. P. Rajaguru},
-  title = {Host-star metallicity of directly imaged wide-orbit planets: implications for planet formation},
+            <span class="highlight__tag">AJ 167, 270 · 2024</span>
+            <h3 class="highlight__title">Giant planets favour younger stars</h3>
+            <p class="highlight__abstract">Across MESA, PARSEC and Yonsei–Yale isochrones, the ratio of giant- to small-planet hosts falls with stellar age. Stars older than about 5 Gyr mostly host small planets.</p>
+            <div class="highlight__links">
+              <a class="highlight__link" href="https://ui.adsabs.harvard.edu/search/q=title%3A%22Age%20analysis%20of%20extrasolar%20planets%3A%20insight%20from%20stellar%20isochrone%20models%22" target="_blank" rel="noopener">Find on ADS ↗</a>
+              <button class="cite-btn" data-cite="@article{Swastik2024,
+  author = {C. Swastik and R. K. Banyal and M. Narang and A. Unni and T. Sivarani},
+  title = {Age analysis of extrasolar planets: insight from stellar isochrone models},
   journal = {The Astronomical Journal},
-  volume = {161}, pages = {114}, year = {2021}
+  volume = {167}, pages = {270}, year = {2024}
 }" title="Copy BibTeX">
                 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                 BibTeX
@@ -363,39 +407,17 @@
 
         <article class="highlight">
           <figure class="highlight__figure">
-            <img src="images/research/gce-host-ages.png" alt="Age histograms of stars hosting small planets, giant planets and super-Jupiters in the HARPS-GTO sample" width="1100" height="966" loading="lazy" />
-          </figure>
-          <div class="highlight__body">
-            <span class="highlight__tag">2022 · AJ 164, 60</span>
-            <h3 class="highlight__title">Giant-planet hosts are younger</h3>
-            <p class="highlight__abstract">Homogeneous abundances and isochrone ages for planet hosts in the HARPS-GTO, CKS and CPS surveys show host chemistry and age changing with planet mass. Stars hosting giant planets and super-Jupiters are younger than those hosting small planets, so planet demographics carry an imprint of Galactic chemical evolution.</p>
-            <p class="highlight__caption">Isochrone ages of HARPS-GTO planet hosts, split into super-Jupiters, giant planets and small planets. Vertical lines mark each median.</p>
-            <div class="highlight__cite">
-              <span>C. Swastik, R. K. Banyal, M. Narang et al.</span>
-              <button class="cite-btn" data-cite="@article{Swastik2022,
-  author = {C. Swastik and R. K. Banyal and M. Narang and P. Manoj and T. Sivarani and S. P. Rajaguru and A. Unni and B. Banerjee},
-  title = {Galactic chemical evolution of exoplanet hosting stars: are high-mass planetary systems young?},
-  journal = {The Astronomical Journal},
-  volume = {164}, pages = {60}, year = {2022}
-}" title="Copy BibTeX">
-                <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                BibTeX
-              </button>
+            <div class="highlight__plate">
+              <img src="images/research/gaia-toomre.png" alt="Toomre diagram of giant-planet and small-planet host stars from Gaia DR3" width="584" height="529" loading="lazy" />
             </div>
-          </div>
-        </article>
-
-        <article class="highlight">
-          <figure class="highlight__figure">
-            <img src="images/research/gaia-toomre.png" alt="Toomre diagram of giant-planet and small-planet host stars from Gaia DR3" width="584" height="529" loading="lazy" />
+            <figcaption>Toomre diagram; dotted circles enclose about 50% and 80% of giant- (red) and small-planet (blue) hosts.</figcaption>
           </figure>
           <div class="highlight__body">
-            <span class="highlight__tag">2023 · AJ 166, 91</span>
+            <span class="highlight__tag">AJ 166, 91 · 2023</span>
             <h3 class="highlight__title">Kinematics tell the same story</h3>
-            <p class="highlight__abstract">Gaia DR3 chemistry and Galactic orbits give two independent age proxies for planet hosts. Giant-planet hosts move with lower peculiar velocities than small-planet hosts, as expected for a younger, kinematically colder population.</p>
-            <p class="highlight__caption">Toomre diagram of planet hosts. Red and blue dotted circles enclose about 50% (inner) and 80% (outer) of giant- and small-planet hosts respectively.</p>
-            <div class="highlight__cite">
-              <span>C. Swastik, R. K. Banyal, M. Narang et al.</span>
+            <p class="highlight__abstract">Gaia DR3 chemistry and Galactic orbits give two independent age proxies. Giant-planet hosts move with lower peculiar velocities than small-planet hosts, as expected for a younger population.</p>
+            <div class="highlight__links">
+              <a class="highlight__link" href="https://ui.adsabs.harvard.edu/search/q=title%3A%22Age%20distribution%20of%20exoplanet%20host-stars%3A%20chemical%20and%20kinematic%20age%20proxies%20from%20GAIA%20DR3%22" target="_blank" rel="noopener">Find on ADS ↗</a>
               <button class="cite-btn" data-cite="@article{Swastik2023,
   author = {C. Swastik and R. K. Banyal and M. Narang and A. Unni and B. Banerjee and P. Manoj and T. Sivarani},
   title = {Age distribution of exoplanet host-stars: chemical and kinematic age proxies from Gaia DR3},
@@ -411,20 +433,48 @@
 
         <article class="highlight">
           <figure class="highlight__figure">
-            <img src="images/research/isochrone-giant-ratio.png" alt="Ratio of giant-planet to small-planet hosts as a function of stellar age for several isochrone models" width="398" height="268" loading="lazy" />
+            <div class="highlight__plate">
+              <img src="images/research/gce-host-ages.png" alt="Age histograms of stars hosting small planets, giant planets and super-Jupiters in the HARPS-GTO sample" width="1100" height="966" loading="lazy" />
+            </div>
+            <figcaption>Isochrone ages of HARPS-GTO planet hosts; vertical lines mark the medians.</figcaption>
           </figure>
           <div class="highlight__body">
-            <span class="highlight__tag">2024 · AJ 167, 270</span>
-            <h3 class="highlight__title">Giant planets favour younger stars</h3>
-            <p class="highlight__abstract">Ages from MESA, PARSEC and Yonsei–Yale isochrones, with Gaia and spectroscopic inputs, agree: the ratio of giant- to small-planet hosts falls with stellar age, and stars older than about 5 Gyr mostly host small planets.</p>
-            <p class="highlight__caption">Ratio of giant-planet to small-planet hosts against stellar age (1 Gyr bins) for different isochrone models and input parameters.</p>
-            <div class="highlight__cite">
-              <span>C. Swastik, R. K. Banyal, M. Narang et al.</span>
-              <button class="cite-btn" data-cite="@article{Swastik2024,
-  author = {C. Swastik and R. K. Banyal and M. Narang and A. Unni and T. Sivarani},
-  title = {Age analysis of extrasolar planets: insight from stellar isochrone models},
+            <span class="highlight__tag">AJ 164, 60 · 2022</span>
+            <h3 class="highlight__title">Giant-planet hosts are younger</h3>
+            <p class="highlight__abstract">Stars hosting giant planets and super-Jupiters are younger than those hosting small planets, so the planets we find today carry an imprint of the Galaxy's chemical evolution.</p>
+            <div class="highlight__links">
+              <a class="highlight__link" href="https://ui.adsabs.harvard.edu/search/q=title%3A%22Galactic%20chemical%20evolution%20of%20exoplanet%20hosting%20stars%3A%20are%20high-mass%20planetary%20systems%20young%3F%22" target="_blank" rel="noopener">Find on ADS ↗</a>
+              <button class="cite-btn" data-cite="@article{Swastik2022,
+  author = {C. Swastik and R. K. Banyal and M. Narang and P. Manoj and T. Sivarani and S. P. Rajaguru and A. Unni and B. Banerjee},
+  title = {Galactic chemical evolution of exoplanet hosting stars: are high-mass planetary systems young?},
   journal = {The Astronomical Journal},
-  volume = {167}, pages = {270}, year = {2024}
+  volume = {164}, pages = {60}, year = {2022}
+}" title="Copy BibTeX">
+                <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                BibTeX
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="highlight">
+          <figure class="highlight__figure">
+            <div class="highlight__plate">
+              <img src="images/research/dip-host-metallicity.png" alt="Gaussian-mixture clusters of Jupiters, super-Jupiters and brown dwarfs in the metallicity versus planet-mass plane" width="998" height="683" loading="lazy" />
+            </div>
+            <figcaption>Jupiters (blue), super-Jupiters (red) and brown dwarfs (green) in the metallicity–mass plane; directly imaged planets as orange stars.</figcaption>
+          </figure>
+          <div class="highlight__body">
+            <span class="highlight__tag">AJ 161, 114 · 2021</span>
+            <h3 class="highlight__title">Wide-orbit giants don't need metal-rich hosts</h3>
+            <p class="highlight__abstract">Stars hosting directly imaged wide-orbit planets have near-solar metallicity (mean [Fe/H] = −0.04 ± 0.27 for 22 hosts), unlike the metal-rich hosts of close-in giant planets.</p>
+            <div class="highlight__links">
+              <a class="highlight__link" href="https://ui.adsabs.harvard.edu/search/q=title%3A%22Host-star%20metallicity%20of%20directly%20imaged%20wide-orbit%20planets%3A%20implications%20for%20planet%20formation%22" target="_blank" rel="noopener">Find on ADS ↗</a>
+              <button class="cite-btn" data-cite="@article{Swastik2021,
+  author = {C. Swastik and R. K. Banyal and M. Narang and P. Manoj and T. Sivarani and B. E. Reddy and S. P. Rajaguru},
+  title = {Host-star metallicity of directly imaged wide-orbit planets: implications for planet formation},
+  journal = {The Astronomical Journal},
+  volume = {161}, pages = {114}, year = {2021}
 }" title="Copy BibTeX">
                 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                 BibTeX
