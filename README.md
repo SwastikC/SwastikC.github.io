@@ -4,9 +4,9 @@ Live at **https://swastikc.github.io**
 
 ## What's new in this version
 
-- 🌌 **Animated cosmic hero scene** — purple ringed planet drifts, rings rotate slowly, moon orbits, stars twinkle, aurora glows pulse. Built in pure SVG/CSS (no Three.js — lightweight and elegant).
+- 📰 **Editorial redesign** (Oct 2026) — warm paper background, Playfair Display + Manrope type, photo-led hero, label/content column layout; dark mode via the toggle
 - 🏆 **ERC UNVEIL badge** in the hero
-- 📊 **Updated CV** — 11 publications, 6 first-author, 6 in preparation
+- 📊 **Updated CV** (Oct 2026) — 14 publications, 8 first-author, 7 submitted or in preparation
 - 🔭 **New Observations section** with VLT/SPHERE, JWST, HCT programs
 - 🎙️ **Talks split** into "Invited seminars/visits" (MIT/Sara Seager featured) and "Conference talks"
 - 💰 **Funding section** highlighting the ERC grant + other awards

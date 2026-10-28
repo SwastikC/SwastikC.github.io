@@ -14,7 +14,8 @@
   const themeBtn = document.getElementById('theme-toggle');
 
   const saved = localStorage.getItem('theme');
-  if (saved === 'light') root.classList.add('theme-light');
+  // Paper (light) is the default look; dark is opt-in
+  if (saved !== 'dark') root.classList.add('theme-light');
 
   if (themeBtn) {
     themeBtn.addEventListener('click', () => {
@@ -55,7 +56,7 @@
         twinkleSpeed: Math.random() * 0.015 + 0.005,
         twinkleOffset: Math.random() * Math.PI * 2,
         // 15% of stars get a colored tint
-        hue: Math.random() < 0.15 ? (Math.random() < 0.5 ? 280 : 330) : 0
+        hue: Math.random() < 0.18 ? [195, 215, 260, 42][Math.floor(Math.random() * 4)] : 0
       }));
     }
 
@@ -85,9 +86,9 @@
         const alpha = s.a + Math.sin(t * s.twinkleSpeed * 60 + s.twinkleOffset) * 0.3;
         const a = Math.max(0.05, Math.min(1, alpha));
         if (s.hue) {
-          ctx.fillStyle = `hsla(${s.hue}, 80%, 75%, ${a})`;
+          ctx.fillStyle = `hsla(${s.hue}, 90%, 78%, ${a})`;
         } else {
-          ctx.fillStyle = `rgba(232, 230, 255, ${a})`;
+          ctx.fillStyle = `rgba(228, 238, 255, ${a})`;
         }
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
@@ -106,7 +107,7 @@
         for (let j = 0; j < ss.trail.length; j++) {
           const p = ss.trail[j];
           const a = (j / ss.trail.length) * ss.life * 0.8;
-          ctx.fillStyle = `rgba(183, 148, 255, ${a})`;
+          ctx.fillStyle = `rgba(150, 225, 255, ${a})`;
           ctx.beginPath();
           ctx.arc(p.x, p.y, 1, 0, Math.PI * 2);
           ctx.fill();
@@ -134,7 +135,7 @@
     } else {
       // Render a single static frame for reduced-motion users
       for (const s of stars) {
-        ctx.fillStyle = `rgba(232, 230, 255, ${s.a})`;
+        ctx.fillStyle = `rgba(228, 238, 255, ${s.a})`;
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         ctx.fill();
@@ -218,6 +219,30 @@
     revealTargets.forEach(el => revealer.observe(el));
   } else {
     revealTargets.forEach(el => el.classList.add('is-visible'));
+  }
+
+  /* ---------- 5b. CARD SPOTLIGHT + HERO PARALLAX ---------- */
+
+  // Cards glow where the pointer is. The listener is delegated so cards
+  // rendered later (GitHub repos) get the effect too.
+  const spotSel = '.theme, .highlight, .project-card, .funding-card, .repo, .about__panel, .talk, .mentees, .service, .contact__form';
+  document.querySelectorAll(spotSel).forEach(el => el.classList.add('spotlight'));
+  document.addEventListener('pointermove', (e) => {
+    const card = e.target.closest && e.target.closest(spotSel);
+    if (!card) return;
+    card.classList.add('spotlight');
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+    card.style.setProperty('--my', `${e.clientY - r.top}px`);
+  }, { passive: true });
+
+  // The planet horizon sinks slowly as you scroll away from the hero
+  const horizon = document.querySelector('.hero__horizon');
+  if (horizon && !reduceMotion) {
+    window.addEventListener('scroll', () => {
+      const y = Math.min(window.scrollY, window.innerHeight);
+      horizon.style.setProperty('--horizon-shift', `${y * 0.35}px`);
+    }, { passive: true });
   }
 
   /* ---------- 6. CITATION COPY (BibTeX) ---------- */
@@ -539,7 +564,7 @@
 
       reposEl.innerHTML = repos.map(repo => {
         const lang = repo.language || 'Other';
-        const color = langColors[lang] || '#b794ff';
+        const color = langColors[lang] || '#5fe1ff';
         const desc = repo.description ? escapeHtml(repo.description) : '<em style="opacity:0.6">No description provided.</em>';
         return `
           <a class="repo" href="${escapeAttr(repo.html_url)}" target="_blank" rel="noopener">
